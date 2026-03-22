@@ -1,6 +1,7 @@
 # データベース管理システム (データベースかんりシステム
 
 
+
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Neuro-Cortex)
 [![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
@@ -9,7 +10,6 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Neuro-Cortex/data_optimization_blueprint?style=for-the-badge&color=blue)]()
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)]()
-
 
 ## Overview
 Welcome to **Database Repository**!  
@@ -137,20 +137,10 @@ Database-Lab/
 
 ![Milestone 8](https://img.shields.io/badge/Milestone%208-Completed-brightgreen)
 ### **Partial Project Presentation**
-- Project progress showcase
-- Mid-project evaluation
+- Project progress 
 
 
-
-
-
-
-  ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge&color=blue)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge&color=blue)
-
-
-
-
+----
   
 ## Flow Chart
 
@@ -166,7 +156,5 @@ flowchart LR
     M5 --> M6[Milestone 6]
     M6 --> M7[Milestone 7]
     M7 --> M8[Milestone 8]
-
-
 
     
