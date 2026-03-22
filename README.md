@@ -159,6 +159,17 @@ Database-Lab/
 
 
 
+
+
+    ![Database Animation](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
+
+
+
+
+
+    ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge&color=blue)
+
+
 ## Flow Chart
 
 
@@ -175,14 +186,5 @@ flowchart LR
     M7 --> M8[Milestone 8]
 
 
-
-
-    ![Database Animation](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
-
-
-
-
-
-    ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge&color=blue)
 
     
