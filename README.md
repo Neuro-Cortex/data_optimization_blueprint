@@ -2,10 +2,14 @@
 
 
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pollob-das)
 [![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
-[![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge)]()
-[![Issues](https://img.shields.io/github/issues/pollob-das/Database-Lab?style=for-the-badge)]()
+[![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge&color=informational)]()
+[![Issues](https://img.shields.io/github/issues/pollob-das/Database-Lab?style=for-the-badge&color=yellow)]()
+[![Last Commit](https://img.shields.io/github/last-commit/pollob-das/Database-Lab?style=for-the-badge&color=blue)]()
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge)]()
+[![Followers](https://img.shields.io/github/followers/pollob-das?style=for-the-badge&color=blue)]()
 
 
 
