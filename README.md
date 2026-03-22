@@ -1,16 +1,13 @@
 # データベース管理システム (データベースかんりシステム
 
 
-
-# Database Lab Repository
-
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
 [![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
 [![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge)]()
 [![Issues](https://img.shields.io/github/issues/pollob-das/Database-Lab?style=for-the-badge)]()
 
----
+
 
 ## Overview
 Welcome to **Database Repository**!  
@@ -59,7 +56,7 @@ Database-Lab/
 
 
 
-###  Implementation of Relational Database (Case Study)**
+###  Implementation of Relational Database (Case Study)
 - Real-life case study দিয়ে database design
 - ER Diagram
 - Table design
@@ -79,7 +76,7 @@ Database-Lab/
 - Project structure
 
 
-### Basic SQL Queries**
+### Basic SQL Queries
 - Basic SQL
 - SELECT
 - WHERE
@@ -94,7 +91,7 @@ Database-Lab/
 - Aggregate functions (SUM, COUNT)
 
 
-### Advanced SQL Queries**
+### Advanced SQL Queries
 - Advanced SQL
 
 
@@ -104,7 +101,8 @@ Database-Lab/
 
 
 flowchart TD
-    A[Lab 1: Introduction] --> B[Lab 2: Implementation - Case Study]
+    A[Lab 1: Introduction] 
+    A--> B[Lab 2: Implementation - Case Study]
     B --> C[Lab 3: Data Manipulation]
     C --> D[Lab 4: Project Development - Server & Web]
     D --> E[Lab 5: Basic SQL Queries]
