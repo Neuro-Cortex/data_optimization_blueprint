@@ -164,13 +164,25 @@ Database-Lab/
 
 
 
+```mermaid
 flowchart LR
-    M1[Milestone 1: Intro] --> M2[Milestone 2: Case Study]
-    M2 --> M3[Milestone 3: Data Manipulation]
-    M3 --> M4[Milestone 4: Project Dev]
-    M4 --> M5[Milestone 5: Basic SQL]
-    M5 --> M6[Milestone 6: Intermediate SQL]
-    M6 --> M7[Milestone 7: Advanced SQL]
-    M7 --> M8[Milestone 8: Project Presentation]
+    M1[Milestone 1] --> M2[Milestone 2]
+    M2 --> M3[Milestone 3]
+    M3 --> M4[Milestone 4]
+    M4 --> M5[Milestone 5]
+    M5 --> M6[Milestone 6]
+    M6 --> M7[Milestone 7]
+    M7 --> M8[Milestone 8]
+
+
+
+
+    ![Database Animation](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
+
+
+
+
+
+    ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge&color=blue)
 
     
