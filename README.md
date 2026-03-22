@@ -33,25 +33,32 @@ Basics → Development → SQL Skills → Presentation
 
 ## Repository Structure
 
-Database-Lab/ 
+Database-Lab
 
 ├── Lab1_Introduction
 │   ├── ER_Diagram.pdf 
-│   └── Notes.md 
+│   └── Notes.md
+
 ├── Lab2_Implementation_CaseStudy
 │   ├── ER_Diagram.pdf 
 │   └── SQL_Scripts.sql
+
 ├── Lab3_Data_Manipulation
 │   └── Data_Manipulation.sql 
 ├── Lab4_Project_Development
-│   └── Backend_Integration.md 
+│   └── Backend_Integration.md
+
 ├── Lab5_Basic_SQL
 │   └── Basic_Queries.sql
+
 ├── Lab6_Intermediate_SQL
 │   └── Intermediate_Queries.sql
+
 ├── Lab7_Advanced_SQL
-│   └── Advanced_Queries.sql 
-└── Lab8_Partial_Project_Presentation/
+│   └── Advanced_Queries.sql
+
+└── Lab8_Partial_Project_Presentation
+
 └── Project_Progress_Report.md
 
 
