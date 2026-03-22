@@ -18,7 +18,7 @@
 
 
 
-
+![Lab1 Milestone](https://img.shields.io/badge/Lab1-Milestone%201-brightgreen)
 
 ![Lab2](https://img.shields.io/badge/Lab2-In%20Progress-yellow)
 ![Lab3](https://img.shields.io/badge/Lab3-Pending-lightgrey)
