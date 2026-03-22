@@ -2,20 +2,55 @@
 
 
 
-This repository contains all the exercises and experiences. 
-It is designed for students and developers to practice **Relational Databases, SQL queries, and full-stack integration** step-by-step.
+# Database Lab Repository
+
+[![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+[![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
+[![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge)]()
+[![Issues](https://img.shields.io/github/issues/pollob-das/Database-Lab?style=for-the-badge)]()
+
+---
+
+## Overview
+Welcome to **Database Repository**!  
+This repository contains **all SQL for Database Management**, designed for **students and developers** to learn:
+
+- Relational Databases concepts  
+- SQL Queries (Basic → Advanced)  
+- Full-Stack Integration (Backend + Database)  
+
+**Pro Tip:** Follow the sequence for structured learning: Basics → Development → SQL Skills → Presentation
 
 
 
+## Repository Structure
 
-## 📂 Repository Structure
-Database-Lab/ ├── Lab1_Introduction/ │   ├── ER_Diagram.pdf │   └── Notes.md ├── Lab2_Implementation_CaseStudy/ │   ├── ER_Diagram.pdf │   └── SQL_Scripts.sql ├── Lab3_Data_Manipulation/ │   └── Data_Manipulation.sql ├── Lab4_Project_Development/ │   └── Backend_Integration.md ├── Lab5_Basic_SQL/ │   └── Basic_Queries.sql ├── Lab6_Intermediate_SQL/ │   └── Intermediate_Queries.sql ├── Lab7_Advanced_SQL/ │   └── Advanced_Queries.sql └── Lab8_Partial_Project_Presentation/ └── Project_Progress_Report.md
+Database-Lab/ 
+├── Lab1_Introduction/ 
+│   ├── ER_Diagram.pdf 
+│   └── Notes.md 
+├── Lab2_Implementation_CaseStudy/ 
+│   ├── ER_Diagram.pdf 
+│   └── SQL_Scripts.sql
+├── Lab3_Data_Manipulation/ 
+│   └── Data_Manipulation.sql 
+├── Lab4_Project_Development/ 
+│   └── Backend_Integration.md 
+├── Lab5_Basic_SQL/
+│   └── Basic_Queries.sql
+├── Lab6_Intermediate_SQL/
+│   └── Intermediate_Queries.sql
+├── Lab7_Advanced_SQL/
+│   └── Advanced_Queries.sql 
+└── Lab8_Partial_Project_Presentation/
+└── Project_Progress_Report.md
 
 
 
 ## Topics Overview
 
-### **Lab 1: Introduction to Relational Databases**
+### **Introduction to Relational Databases**
 - Relational Database 
 - Database Environment setup
 - Database
@@ -31,13 +66,13 @@ Database-Lab/ ├── Lab1_Introduction/ │   ├── ER_Diagram.pdf │   
 - Real system (like student system)
 
 
-### **Lab 3: Manipulation of Implemented Database**
+### **Manipulation of Implemented Database**
 - Data manipulation
 - INSERT, UPDATE, DELETE
-- Data modify করা
+- Data modify
 
 
-### **Lab 4: Database Project Development (Server + Web)**
+### **Database Project Development (Server + Web)**
 - Database server + Web server integration
 - Backend + Database connect
 - Basic full-stack concept
@@ -81,18 +116,4 @@ flowchart TD
 
 
 
-    # 🏫 Database Lab Repository
-
-[![MySQL](https://img.shields.io/badge/MySQL-00758F?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/) 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/) 
-[![SQL](https://img.shields.io/badge/SQL-00599C?style=flat&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
-
----
-
-## 🌟 Overview
-This repository contains all the lab exercises for **Database Management using MySQL**.  
-Designed for students & developers to practice **Relational Databases, SQL Queries, and Full-Stack Integration** step-by-step.
-
----
-
-## 📂 Repository Structure
+    
