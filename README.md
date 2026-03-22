@@ -27,80 +27,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![Milestone 5](https://img.shields.io/badge/Milestone%205-Pending-lightgrey)
-
-
-
-
-
-
-
-
-
-![Milestone 6](https://img.shields.io/badge/Milestone%206-Pending-lightgrey)
-
-
-
-
-
-![Milestone 7](https://img.shields.io/badge/Milestone%207-Pending-lightgrey)
-
-
-
-
-
-
-
-![Milestone 8](https://img.shields.io/badge/Milestone%208-Pending-lightgrey)
-
-
-
-
-
-
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Overview
 Welcome to **Database Repository**!  
 This repository contains **all SQL for Database Management**, designed for **students and developers** to learn:
@@ -160,75 +86,77 @@ Database-Lab/
 ## Topics Overview
 
 
+
+
+
 ![Milestone 1](https://img.shields.io/badge/Milestone%201-Completed-brightgreen)
 ### **Introduction to Relational Databases**
 - Relational Database 
 - Database Environment setup
-- Database
 - Table, Row, Column concept
 - DBMS setup (MySQL / SQL Server)
 
-
-
+---
 
 ![Milestone 2](https://img.shields.io/badge/Milestone%202-Completed-brightgreen)
-###  Implementation of Relational Database (Case Study)
+### **Implementation of Relational Database (Case Study)**
 - Real-life case study দিয়ে database design
 - ER Diagram
 - Table design
-- Real system (like student system)
+- Real system example (like student system)
 
+---
 
-
-
-
-
-
-![Milestone 3](https://img.shields.io/badge/Milestone%203-In%20Progress-yellow)
+![Milestone 3](https://img.shields.io/badge/Milestone%203-Completed-brightgreen)
 ### **Manipulation of Implemented Database**
 - Data manipulation
 - INSERT, UPDATE, DELETE
-- Data modify
+- Data modification
 
+---
 
-
-
-
-
-
-
-
-
-
-
-![Milestone 4](https://img.shields.io/badge/Milestone%204-Pending-lightgrey)
+![Milestone 4](https://img.shields.io/badge/Milestone%204-Completed-brightgreen)
 ### **Database Project Development (Server + Web)**
 - Database server + Web server integration
 - Backend + Database connect
 - Basic full-stack concept
 - Project structure
 
+---
 
-![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
-### Basic SQL Queries
+![Milestone 5](https://img.shields.io/badge/Milestone%205-Completed-brightgreen)
+### **Basic SQL Queries**
 - Basic SQL
 - SELECT
 - WHERE
 - ORDER BY
 - Simple queries
 
+---
 
-![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
-### ** Intermediate SQL Queries**
+![Milestone 6](https://img.shields.io/badge/Milestone%206-Completed-brightgreen)
+### **Intermediate SQL Queries**
 - Medium-level SQL
 - JOIN (INNER, LEFT, RIGHT)
 - GROUP BY
 - Aggregate functions (SUM, COUNT)
 
+---
 
-![Milestone 8 ](https://img.shields.io/badge/Lab1-Completed-brightgreen)
-### Advanced SQL Queries
-- Advanced SQL
+![Milestone 7](https://img.shields.io/badge/Milestone%207-Completed-brightgreen)
+### **Advanced SQL Queries**
+- Subqueries
+- Nested queries
+- Complex data retrieval
+
+---
+
+![Milestone 8](https://img.shields.io/badge/Milestone%208-Completed-brightgreen)
+### **Partial Project Presentation**
+- Project progress showcase
+- Mid-project evaluation
+
+
 
 
 ## Flow Chart
