@@ -1,0 +1,5 @@
+INSERT INTO students (first_name, last_name, email, phone, dob, gender, department, year_of_study, cgpa, city, country)
+VALUES 
+('Sana', 'Das', 'sana@example.com', '017xxxxxxxx', '2000-12-06', 'Male', 'CSE', 10, 3.85, 'Dhaka', 'Bangladesh'),
+('Rahim', 'Ahmed', 'rahim@example.com', '018xxxxxxxx', '2001-05-10', 'Male', 'EEE', 9, 3.45, 'Chattogram', 'Bangladesh'),
+('Karim', 'Hossain', 'karim@example.com', '019xxxxxxxx', '2000-08-15', 'Male', 'BBA', 10, 3.65, 'Khulna', 'Bangladesh');
