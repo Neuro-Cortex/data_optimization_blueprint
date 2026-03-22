@@ -7,7 +7,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)]()
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)]()
 [![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)]()
-[![Last Commit](https://img.shields.io/github/last-commit/pollob-das/Database-Lab?style=for-the-badge&color=blue)]()
+[![Last Commit](https://img.shields.io/github/last-commit/Neuro-Cortex/Database-Lab?style=for-the-badge&color=blue)]()
 [![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge&color=informational)]()
 [![Stars](https://img.shields.io/github/stars/pollob-das/Database-Lab?style=for-the-badge&color=yellow)]()
 
