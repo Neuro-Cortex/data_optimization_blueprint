@@ -1,0 +1,5 @@
+INSERT INTO users (name, email)
+VALUES 
+('Sana', 'sana@gmail.com'),
+('Rahim', 'rahim@gmail.com'),
+('Karim', 'karim@gmail.com');
