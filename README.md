@@ -7,7 +7,8 @@ It is designed for students and developers to practice **Relational Databases, S
 
 
 
-##  Repository Structure
+
+## 📂 Repository Structure
 Database-Lab/ ├── Lab1_Introduction/ │   ├── ER_Diagram.pdf │   └── Notes.md ├── Lab2_Implementation_CaseStudy/ │   ├── ER_Diagram.pdf │   └── SQL_Scripts.sql ├── Lab3_Data_Manipulation/ │   └── Data_Manipulation.sql ├── Lab4_Project_Development/ │   └── Backend_Integration.md ├── Lab5_Basic_SQL/ │   └── Basic_Queries.sql ├── Lab6_Intermediate_SQL/ │   └── Intermediate_Queries.sql ├── Lab7_Advanced_SQL/ │   └── Advanced_Queries.sql └── Lab8_Partial_Project_Presentation/ └── Project_Progress_Report.md
 
 
@@ -64,11 +65,13 @@ Database-Lab/ ├── Lab1_Introduction/ │   ├── ER_Diagram.pdf │   
 
 ## Flow Chart
 
-```mermaid
+
+
+
 flowchart TD
-    A[Lab 1: Introduction] --> B[Lab 2: Implementation (Case Study)]
+    A[Lab 1: Introduction] --> B[Lab 2: Implementation - Case Study]
     B --> C[Lab 3: Data Manipulation]
-    C --> D[Lab 4: Project Development (Server + Web)]
+    C --> D[Lab 4: Project Development - Server & Web]
     D --> E[Lab 5: Basic SQL Queries]
     E --> F[Lab 6: Intermediate SQL Queries]
     F --> G[Lab 7: Advanced SQL Queries]
