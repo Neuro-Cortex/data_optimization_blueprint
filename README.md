@@ -12,6 +12,66 @@
 
 
 
+
+[![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)]()
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)]()
+[![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)]()
+[![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)]()
+[![Lab2](https://img.shields.io/badge/Lab2-In%20Progress-yellow)]()
+[![Lab3](https://img.shields.io/badge/Lab3-Pending-lightgrey)]()
+[![Last Commit](https://img.shields.io/github/last-commit/pollob-das/Database-Lab?style=for-the-badge&color=blue)]()
+[![Repo Size](https://img.shields.io/github/repo-size/pollob-das/Database-Lab?style=for-the-badge&color=informational)]()
+[![Stars](https://img.shields.io/github/stars/pollob-das/Database-Lab?style=for-the-badge&color=yellow)]()
+[![Forks](https://img.shields.io/github/forks/pollob-das/Database-Lab?style=for-the-badge&color=blue)]()
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
+
+
+
+
+
+![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
+![Lab2](https://img.shields.io/badge/Lab2-In%20Progress-yellow)
+![Lab3](https://img.shields.io/badge/Lab3-Pending-lightgrey)
+
+
+
+
+
+![Stars](https://img.shields.io/github/stars/pollob-das/Database-Lab?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/pollob-das/Database-Lab?style=for-the-badge)
+![Watchers](https://img.shields.io/github/watchers/pollob-das/Database-Lab?style=for-the-badge)
+
+
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+
+
+
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/pollob-das/Database-Lab?style=for-the-badge)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Overview
 Welcome to **Database Repository**!  
 This repository contains **all SQL for Database Management**, designed for **students and developers** to learn:
