@@ -162,18 +162,15 @@ Database-Lab/
 ## Flow Chart
 
 
-flowchart TD
-    A[Lab 1: Introduction] 
-    A--> B[Lab 2: Implementation - Case Study]
-    B --> C[Lab 3: Data Manipulation]
-    C --> D[Lab 4: Project Development - Server & Web]
-    D --> E[Lab 5: Basic SQL Queries]
-    E --> F[Lab 6: Intermediate SQL Queries]
-    F --> G[Lab 7: Advanced SQL Queries]
-    G --> H[Lab 8: Partial Project Presentation]
 
 
-
-
+flowchart LR
+    M1[Milestone 1: Intro] --> M2[Milestone 2: Case Study]
+    M2 --> M3[Milestone 3: Data Manipulation]
+    M3 --> M4[Milestone 4: Project Dev]
+    M4 --> M5[Milestone 5: Basic SQL]
+    M5 --> M6[Milestone 6: Intermediate SQL]
+    M6 --> M7[Milestone 7: Advanced SQL]
+    M7 --> M8[Milestone 8: Project Presentation]
 
     
