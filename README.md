@@ -76,3 +76,23 @@ flowchart TD
     E --> F[Lab 6: Intermediate SQL Queries]
     F --> G[Lab 7: Advanced SQL Queries]
     G --> H[Lab 8: Partial Project Presentation]
+
+
+
+
+
+    # 🏫 Database Lab Repository
+
+[![MySQL](https://img.shields.io/badge/MySQL-00758F?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/) 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/) 
+[![SQL](https://img.shields.io/badge/SQL-00599C?style=flat&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
+
+---
+
+## 🌟 Overview
+This repository contains all the lab exercises for **Database Management using MySQL**.  
+Designed for students & developers to practice **Relational Databases, SQL Queries, and Full-Stack Integration** step-by-step.
+
+---
+
+## 📂 Repository Structure
