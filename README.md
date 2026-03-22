@@ -18,12 +18,62 @@
 
 
 
-![Lab1 Milestone](https://img.shields.io/badge/Lab1-Milestone%201-brightgreen)
-
-![Lab2](https://img.shields.io/badge/Lab2-In%20Progress-yellow)
-![Lab3](https://img.shields.io/badge/Lab3-Pending-lightgrey)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Milestone 5](https://img.shields.io/badge/Milestone%205-Pending-lightgrey)
+
+
+
+
+
+
+
+
+
+![Milestone 6](https://img.shields.io/badge/Milestone%206-Pending-lightgrey)
+
+
+
+
+
+![Milestone 7](https://img.shields.io/badge/Milestone%207-Pending-lightgrey)
+
+
+
+
+
+
+
+![Milestone 8](https://img.shields.io/badge/Milestone%208-Pending-lightgrey)
 
 
 
@@ -109,7 +159,8 @@ Database-Lab/
 
 ## Topics Overview
 
-![Milestone 1 ](https://img.shields.io/badge/Lab1-Completed-brightgreen)
+
+![Milestone 1](https://img.shields.io/badge/Milestone%201-Completed-brightgreen)
 ### **Introduction to Relational Databases**
 - Relational Database 
 - Database Environment setup
@@ -119,7 +170,8 @@ Database-Lab/
 
 
 
-![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
+
+![Milestone 2](https://img.shields.io/badge/Milestone%202-Completed-brightgreen)
 ###  Implementation of Relational Database (Case Study)
 - Real-life case study দিয়ে database design
 - ER Diagram
@@ -127,14 +179,29 @@ Database-Lab/
 - Real system (like student system)
 
 
-![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
+
+
+
+
+
+![Milestone 3](https://img.shields.io/badge/Milestone%203-In%20Progress-yellow)
 ### **Manipulation of Implemented Database**
 - Data manipulation
 - INSERT, UPDATE, DELETE
 - Data modify
 
 
-![Lab1](https://img.shields.io/badge/Lab1-Completed-brightgreen)
+
+
+
+
+
+
+
+
+
+
+![Milestone 4](https://img.shields.io/badge/Milestone%204-Pending-lightgrey)
 ### **Database Project Development (Server + Web)**
 - Database server + Web server integration
 - Backend + Database connect
