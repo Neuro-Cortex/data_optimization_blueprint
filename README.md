@@ -1,7 +1,12 @@
 # データベース管理システム (データベースかんりシステム
 
 
+![GitHub stars](https://img.shields.io/github/stars/Neuro-Cortex/data_optimization_blueprint?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Neuro-Cortex/data_optimization_blueprint?style=for-the-badge)
+![GitHub watchers](https://img.shields.io/github/watchers/Neuro-Cortex/data_optimization_blueprint?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/Neuro-Cortex/data_optimization_blueprint?style=for-the-badge)
 
+![SQL Animation](https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif)
 
 
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
