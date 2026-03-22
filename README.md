@@ -2,6 +2,8 @@
 
 
 
+
+
 [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Neuro-Cortex)
 [![SQL](https://img.shields.io/badge/SQL-00599C?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://www.mysql.com/)
@@ -11,15 +13,21 @@
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)]()
 [![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)]()
 
-## Overview
-Welcome to **Database Repository**!  
+
+
+
+
+## **Overview**
+Welcome to **Database Repository!**
 This repository contains **all SQL for Database Management**, designed for **students and developers** to learn:
 
 - Relational Databases concepts  
 - SQL Queries (Basic → Advanced)  
 - Full-Stack Integration (Backend + Database)  
 
-**Pro Tip:** Follow the sequence for structured learning: Basics → Development → SQL Skills → Presentation
+**Pro Tip:** 
+Follow the sequence for structured learning:
+Basics → Development → SQL Skills → Presentation
 
 
 
@@ -27,41 +35,22 @@ This repository contains **all SQL for Database Management**, designed for **stu
 
 Database-Lab/ 
 
-├── Lab1_Introduction/ 
-
+├── Lab1_Introduction
 │   ├── ER_Diagram.pdf 
 │   └── Notes.md 
-
-├── Lab2_Implementation_CaseStudy/ 
-
+├── Lab2_Implementation_CaseStudy
 │   ├── ER_Diagram.pdf 
 │   └── SQL_Scripts.sql
-
-
-├── Lab3_Data_Manipulation/ 
-
-
+├── Lab3_Data_Manipulation
 │   └── Data_Manipulation.sql 
-├── Lab4_Project_Development/ 
+├── Lab4_Project_Development
 │   └── Backend_Integration.md 
-
-
-
-├── Lab5_Basic_SQL/
+├── Lab5_Basic_SQL
 │   └── Basic_Queries.sql
-
-
-
-├── Lab6_Intermediate_SQL/
+├── Lab6_Intermediate_SQL
 │   └── Intermediate_Queries.sql
-
-
-
-├── Lab7_Advanced_SQL/
+├── Lab7_Advanced_SQL
 │   └── Advanced_Queries.sql 
-
-
-
 └── Lab8_Partial_Project_Presentation/
 └── Project_Progress_Report.md
 
