@@ -1,0 +1,6 @@
+CREATE TABLE Courses (
+    cid INT PRIMARY KEY,
+    cname VARCHAR(50),
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES Students(id)
+);
