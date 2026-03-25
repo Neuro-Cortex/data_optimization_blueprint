@@ -1,0 +1,10 @@
+CREATE DATABASE PracticeDB;
+USE PracticeDB;
+
+CREATE TABLE Students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    dept VARCHAR(50),
+    cgpa DECIMAL(3,2)
+);
