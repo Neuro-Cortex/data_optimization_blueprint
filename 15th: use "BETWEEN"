@@ -1,0 +1,5 @@
+SELECT * FROM Students
+WHERE cgpa BETWEEN 3.5 AND 4.0;
+
+SELECT * FROM Students
+WHERE age BETWEEN 20 AND 22;
