@@ -1,0 +1,6 @@
+SELECT COUNT(*) FROM Students;
+SELECT AVG(cgpa) FROM Students;
+
+SELECT dept, COUNT(*)
+FROM Students
+GROUP BY dept;
