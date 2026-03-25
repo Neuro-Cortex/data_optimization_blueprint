@@ -1,0 +1,4 @@
+SELECT Students.name, Courses.cname
+FROM Students
+INNER JOIN Courses
+ON Students.id = Courses.student_id;
