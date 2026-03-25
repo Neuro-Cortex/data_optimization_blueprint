@@ -1,0 +1,6 @@
+INSERT INTO Students VALUES
+(1,'Arafat',22,'CSE',3.5),
+(2,'Nayeem',21,'EEE',3.2),
+(3,'Sana',23,'CSE',3.8),
+(4,'Rafi',20,'BBA',3.1),
+(5,'Jony',22,'CSE',3.9);
