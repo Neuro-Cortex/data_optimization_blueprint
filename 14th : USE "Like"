@@ -1,0 +1,8 @@
+SELECT * FROM Students
+WHERE name LIKE 'S%';   -- S diye start
+
+SELECT * FROM Students
+WHERE name LIKE '%a';   -- a diye end
+
+SELECT * FROM Students
+WHERE name LIKE '%n%';  -- n thakle
