@@ -1,0 +1,3 @@
+SELECT * FROM Students;
+SELECT name, cgpa FROM Students;
+SELECT * FROM Students WHERE dept='CSE';
