@@ -1,3 +1,0 @@
-CREATE VIEW TopStudents AS
-SELECT * FROM Students
-WHERE cgpa > 3.5;
