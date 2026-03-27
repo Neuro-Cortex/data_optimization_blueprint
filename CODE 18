@@ -1,0 +1,4 @@
+CREATE TABLE Departments (
+    dept_name VARCHAR(50) PRIMARY KEY,
+    hod VARCHAR(50)
+);
