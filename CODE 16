@@ -1,0 +1,7 @@
+SELECT *
+FROM Students s
+WHERE cgpa = (
+    SELECT MAX(cgpa)
+    FROM Students
+    WHERE dept = s.dept
+);
