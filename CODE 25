@@ -1,0 +1,8 @@
+
+SELECT name, dept, cgpa
+FROM (
+    SELECT name, dept, cgpa,
+    ROW_NUMBER() OVER (PARTITION BY dept ORDER BY cgpa DESC) as rn
+    FROM Students
+) t
+WHERE rn <= 2;
