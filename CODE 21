@@ -1,0 +1,3 @@
+SELECT name, dept, cgpa,
+RANK() OVER (PARTITION BY dept ORDER BY cgpa DESC) AS rank_in_dept
+FROM Students;
