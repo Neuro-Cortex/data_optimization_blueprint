@@ -1,0 +1,7 @@
+SELECT name, cgpa
+FROM Students s1
+WHERE cgpa > (
+    SELECT AVG(cgpa)
+    FROM Students s2
+    WHERE s1.dept = s2.dept
+);
