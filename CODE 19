@@ -1,0 +1,4 @@
+SELECT s1.name AS Student1, s2.name AS Student2, s1.dept
+FROM Students s1
+JOIN Students s2
+ON s1.dept = s2.dept AND s1.id < s2.id;
