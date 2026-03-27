@@ -1,0 +1,6 @@
+START TRANSACTION;
+
+UPDATE Students SET cgpa = 4.0 WHERE id = 1;
+
+ROLLBACK;
+-- or COMMIT;
