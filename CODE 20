@@ -1,0 +1,7 @@
+SELECT name, cgpa,
+CASE
+    WHEN cgpa >= 3.7 THEN 'Excellent'
+    WHEN cgpa >= 3.3 THEN 'Good'
+    ELSE 'Average'
+END AS performance
+FROM Students;
