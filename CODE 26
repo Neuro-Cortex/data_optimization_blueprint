@@ -1,0 +1,5 @@
+
+SELECT name, COUNT(*)
+FROM Students
+GROUP BY name
+HAVING COUNT(*) > 1;
