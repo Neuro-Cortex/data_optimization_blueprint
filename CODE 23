@@ -1,0 +1,9 @@
+WITH AvgCGPA AS (
+    SELECT dept, AVG(cgpa) AS avg_cgpa
+    FROM Students
+    GROUP BY dept
+)
+SELECT s.name, s.dept, s.cgpa
+FROM Students s
+JOIN AvgCGPA a ON s.dept = a.dept
+WHERE s.cgpa > a.avg_cgpa;
