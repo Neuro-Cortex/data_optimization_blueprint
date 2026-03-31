@@ -1,0 +1,150 @@
+-- University Database: Complex SQL Example
+
+
+-- Create tables
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DOB DATE,
+    EnrollmentYear INT
+);
+
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(100),
+    Credits INT
+);
+
+CREATE TABLE Professors (
+    ProfessorID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50)
+);
+
+CREATE TABLE Enrollments (
+    EnrollmentID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    Semester VARCHAR(10),
+    Grade CHAR(2),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+CREATE TABLE CourseAssignments (
+    AssignmentID INT PRIMARY KEY,
+    ProfessorID INT,
+    CourseID INT,
+    AssignedDate DATE,
+    FOREIGN KEY (ProfessorID) REFERENCES Professors(ProfessorID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+
+-- 1. Using CTE + Window Function to get top 3 students by average grade per course
+
+
+WITH StudentGrades AS (
+    SELECT
+        e.StudentID,
+        c.CourseName,
+        CASE
+            WHEN e.Grade = 'A' THEN 4.0
+            WHEN e.Grade = 'B' THEN 3.0
+            WHEN e.Grade = 'C' THEN 2.0
+            WHEN e.Grade = 'D' THEN 1.0
+            ELSE 0
+        END AS GradePoint
+    FROM Enrollments e
+    JOIN Courses c ON e.CourseID = c.CourseID
+)
+SELECT *
+FROM (
+    SELECT
+        sg.StudentID,
+        s.FirstName,
+        s.LastName,
+        sg.CourseName,
+        AVG(sg.GradePoint) OVER (PARTITION BY sg.CourseName, sg.StudentID) AS AvgGrade,
+        ROW_NUMBER() OVER (PARTITION BY sg.CourseName ORDER BY AVG(sg.GradePoint) OVER (PARTITION BY sg.CourseName, sg.StudentID) DESC) AS RankInCourse
+    FROM StudentGrades sg
+    JOIN Students s ON sg.StudentID = s.StudentID
+) ranked
+WHERE RankInCourse <= 3
+ORDER BY CourseName, RankInCourse;
+
+
+-- 2. Using Subquery + Aggregate Function to find professors teaching the most courses
+
+
+SELECT
+    p.ProfessorID,
+    p.FirstName,
+    p.LastName,
+    COUNT(ca.CourseID) AS CoursesTaught
+FROM Professors p
+JOIN CourseAssignments ca ON p.ProfessorID = ca.ProfessorID
+GROUP BY p.ProfessorID, p.FirstName, p.LastName
+HAVING COUNT(ca.CourseID) = (
+    SELECT MAX(CourseCount)
+    FROM (
+        SELECT COUNT(CourseID) AS CourseCount
+        FROM CourseAssignments
+        GROUP BY ProfessorID
+    ) AS CourseCounts
+);
+
+
+-- 3. Transaction + Trigger Example
+
+
+-- Trigger: Automatically insert a log when a student is enrolled
+CREATE TABLE EnrollmentLogs (
+    LogID INT PRIMARY KEY AUTO_INCREMENT,
+    StudentID INT,
+    CourseID INT,
+    ActionTime DATETIME,
+    Action VARCHAR(50)
+);
+
+DELIMITER //
+CREATE TRIGGER trg_AfterEnrollment
+AFTER INSERT ON Enrollments
+FOR EACH ROW
+BEGIN
+    INSERT INTO EnrollmentLogs(StudentID, CourseID, ActionTime, Action)
+    VALUES (NEW.StudentID, NEW.CourseID, NOW(), 'Enrolled');
+END;
+
+DELIMITER ;
+
+-- Transaction Example: Enroll multiple students safely
+START TRANSACTION;
+
+INSERT INTO Enrollments(StudentID, CourseID, Semester, Grade) VALUES (101, 1, 'Spring2026', 'A');
+INSERT INTO Enrollments(StudentID, CourseID, Semester, Grade) VALUES (102, 1, 'Spring2026', 'B');
+
+-- If any error occurs, rollback everything
+-- COMMIT to finalize
+COMMIT;
+
+
+-- 4. Complex Join: List students, their courses, and assigned professor
+
+
+SELECT
+    s.StudentID,
+    s.FirstName,
+    s.LastName,
+    c.CourseName,
+    p.FirstName AS ProfessorFirst,
+    p.LastName AS ProfessorLast,
+    e.Grade
+FROM Students s
+JOIN Enrollments e ON s.StudentID = e.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID
+LEFT JOIN CourseAssignments ca ON c.CourseID = ca.CourseID
+LEFT JOIN Professors p ON ca.ProfessorID = p.ProfessorID
+ORDER BY s.LastName, c.CourseName;
