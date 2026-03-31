@@ -1,0 +1,273 @@
+-- 1. Create database
+CREATE DATABASE UniversityDB;
+USE UniversityDB;
+
+-- 2. Create Departments table
+CREATE TABLE Departments (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50),
+    Location VARCHAR(50)
+);
+
+-- 3. Create Professors table
+CREATE TABLE Professors (
+    ProfID INT PRIMARY KEY,
+    ProfName VARCHAR(50),
+    DeptID INT,
+    Salary DECIMAL(10,2),
+    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
+);
+
+-- 4. Create Students table
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50),
+    Age INT,
+    DeptID INT,
+    EnrollmentYear INT,
+    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
+);
+
+-- 5. Create Courses table
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(50),
+    DeptID INT,
+    Credits INT,
+    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID)
+);
+
+-- 6. Create Enrollments table
+CREATE TABLE Enrollments (
+    EnrollmentID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    Grade CHAR(2),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+-- 7. Insert into Departments
+INSERT INTO Departments VALUES (1, 'Computer Science', 'Building A');
+INSERT INTO Departments VALUES (2, 'Electrical Engineering', 'Building B');
+INSERT INTO Departments VALUES (3, 'Mechanical Engineering', 'Building C');
+INSERT INTO Departments VALUES (4, 'Civil Engineering', 'Building D');
+INSERT INTO Departments VALUES (5, 'Business Administration', 'Building E');
+
+-- 8. Insert into Professors
+INSERT INTO Professors VALUES (101, 'Dr. Smith', 1, 90000);
+INSERT INTO Professors VALUES (102, 'Dr. Johnson', 2, 85000);
+INSERT INTO Professors VALUES (103, 'Dr. Lee', 3, 87000);
+INSERT INTO Professors VALUES (104, 'Dr. Brown', 4, 83000);
+INSERT INTO Professors VALUES (105, 'Dr. Davis', 5, 80000);
+
+-- 9. Insert into Students
+INSERT INTO Students VALUES (201, 'Alice', 20, 1, 2023);
+INSERT INTO Students VALUES (202, 'Bob', 21, 1, 2022);
+INSERT INTO Students VALUES (203, 'Charlie', 19, 2, 2023);
+INSERT INTO Students VALUES (204, 'David', 22, 3, 2021);
+INSERT INTO Students VALUES (205, 'Eva', 20, 4, 2022);
+
+-- 10. Insert into Courses
+INSERT INTO Courses VALUES (301, 'Data Structures', 1, 3);
+INSERT INTO Courses VALUES (302, 'Algorithms', 1, 3);
+INSERT INTO Courses VALUES (303, 'Circuit Analysis', 2, 4);
+INSERT INTO Courses VALUES (304, 'Thermodynamics', 3, 3);
+INSERT INTO Courses VALUES (305, 'Statics', 4, 3);
+
+-- 11. Insert into Enrollments
+INSERT INTO Enrollments VALUES (401, 201, 301, 'A');
+INSERT INTO Enrollments VALUES (402, 201, 302, 'B');
+INSERT INTO Enrollments VALUES (403, 202, 301, 'B');
+INSERT INTO Enrollments VALUES (404, 203, 303, 'A');
+INSERT INTO Enrollments VALUES (405, 204, 304, 'C');
+INSERT INTO Enrollments VALUES (406, 205, 305, 'B');
+
+-- 12. More Students
+INSERT INTO Students VALUES (206, 'Frank', 21, 5, 2022);
+INSERT INTO Students VALUES (207, 'Grace', 22, 2, 2021);
+INSERT INTO Students VALUES (208, 'Hannah', 20, 3, 2023);
+INSERT INTO Students VALUES (209, 'Ian', 23, 4, 2021);
+INSERT INTO Students VALUES (210, 'Jack', 19, 1, 2023);
+
+-- 13. More Courses
+INSERT INTO Courses VALUES (306, 'Database Systems', 1, 3);
+INSERT INTO Courses VALUES (307, 'Power Systems', 2, 4);
+INSERT INTO Courses VALUES (308, 'Machine Design', 3, 3);
+INSERT INTO Courses VALUES (309, 'Construction Materials', 4, 3);
+INSERT INTO Courses VALUES (310, 'Marketing 101', 5, 3);
+
+-- 14. More Enrollments
+INSERT INTO Enrollments VALUES (407, 206, 310, 'A');
+INSERT INTO Enrollments VALUES (408, 207, 303, 'B');
+INSERT INTO Enrollments VALUES (409, 208, 308, 'A');
+INSERT INTO Enrollments VALUES (410, 209, 309, 'B');
+INSERT INTO Enrollments VALUES (411, 210, 306, 'A');
+
+-- 15. Sample Queries
+-- List all students
+SELECT * FROM Students;
+
+-- List all professors in CS department
+SELECT ProfName FROM Professors WHERE DeptID = 1;
+
+-- Get all courses with credits > 3
+SELECT CourseName FROM Courses WHERE Credits > 3;
+
+-- Join Students and Departments
+SELECT s.StudentName, d.DeptName
+FROM Students s
+JOIN Departments d ON s.DeptID = d.DeptID;
+
+-- Join Enrollments and Courses
+SELECT e.StudentID, c.CourseName, e.Grade
+FROM Enrollments e
+JOIN Courses c ON e.CourseID = c.CourseID;
+
+-- Average student age
+SELECT AVG(Age) AS AvgAge FROM Students;
+
+-- Count students per department
+SELECT DeptID, COUNT(*) AS NumStudents
+FROM Students
+GROUP BY DeptID;
+
+-- List students with grade A
+SELECT s.StudentName, c.CourseName
+FROM Enrollments e
+JOIN Students s ON e.StudentID = s.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID
+WHERE e.Grade = 'A';
+
+-- Top 3 highest paid professors
+SELECT ProfName, Salary
+FROM Professors
+ORDER BY Salary DESC
+LIMIT 3;
+
+-- Update student age
+UPDATE Students SET Age = Age + 1 WHERE StudentID = 201;
+
+-- Delete a course
+DELETE FROM Courses WHERE CourseID = 310;
+
+-- Alter table to add email
+ALTER TABLE Students ADD Email VARCHAR(50);
+
+-- Add email for one student
+UPDATE Students SET Email = 'alice@example.com' WHERE StudentID = 201;
+
+-- Add a new department
+INSERT INTO Departments VALUES (6, 'Mathematics', 'Building F');
+
+-- Add a new professor
+INSERT INTO Professors VALUES (106, 'Dr. Wilson', 6, 78000);
+
+-- Add new course
+INSERT INTO Courses VALUES (311, 'Linear Algebra', 6, 3);
+
+-- Add enrollment
+INSERT INTO Enrollments VALUES (412, 201, 311, 'A');
+
+-- More queries
+SELECT s.StudentName, e.Grade, c.CourseName
+FROM Students s
+JOIN Enrollments e ON s.StudentID = e.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID
+WHERE c.Credits >= 3;
+
+-- Find departments with more than 2 students
+SELECT DeptName FROM Departments d
+JOIN Students s ON d.DeptID = s.DeptID
+GROUP BY d.DeptID
+HAVING COUNT(s.StudentID) > 2;
+
+-- Find professors without students
+SELECT ProfName FROM Professors p
+LEFT JOIN Students s ON p.DeptID = s.DeptID
+WHERE s.StudentID IS NULL;
+
+-- Update course credits
+UPDATE Courses SET Credits = 4 WHERE CourseName = 'Data Structures';
+
+-- Delete a student
+DELETE FROM Students WHERE StudentID = 210;
+
+-- Add a new column to Professors
+ALTER TABLE Professors ADD HireDate DATE;
+
+-- Update hire date
+UPDATE Professors SET HireDate = '2020-01-15' WHERE ProfID = 101;
+
+-- Create view of student enrollments
+CREATE VIEW StudentEnrollments AS
+SELECT s.StudentName, c.CourseName, e.Grade
+FROM Students s
+JOIN Enrollments e ON s.StudentID = e.StudentID
+JOIN Courses c ON e.CourseID = c.CourseID;
+
+-- Query view
+SELECT * FROM StudentEnrollments;
+
+-- Drop view
+DROP VIEW StudentEnrollments;
+
+-- Create index on Courses
+CREATE INDEX idx_course_name ON Courses(CourseName);
+
+-- Drop index
+DROP INDEX idx_course_name ON Courses;
+
+-- Transaction example
+START TRANSACTION;
+INSERT INTO Students VALUES (211, 'Liam', 21, 1, 2023);
+INSERT INTO Enrollments VALUES (413, 211, 301, 'B');
+COMMIT;
+
+-- Rollback example
+START TRANSACTION;
+INSERT INTO Students VALUES (212, 'Mia', 22, 2, 2023);
+ROLLBACK;
+
+-- Subquery example
+SELECT StudentName FROM Students
+WHERE DeptID IN (SELECT DeptID FROM Departments WHERE Location = 'Building A');
+
+-- Nested join
+SELECT s.StudentName, p.ProfName, d.DeptName
+FROM Students s
+JOIN Departments d ON s.DeptID = d.DeptID
+JOIN Professors p ON p.DeptID = d.DeptID;
+
+-- Count courses per department
+SELECT DeptID, COUNT(*) AS NumCourses FROM Courses GROUP BY DeptID;
+
+-- Update multiple students
+UPDATE Students SET EnrollmentYear = 2024 WHERE DeptID = 1;
+
+-- Delete multiple enrollments
+DELETE FROM Enrollments WHERE Grade = 'C';
+
+-- Add a new table for Exams
+CREATE TABLE Exams (
+    ExamID INT PRIMARY KEY,
+    CourseID INT,
+    ExamDate DATE,
+    MaxMarks INT,
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
+
+-- Insert exams
+INSERT INTO Exams VALUES (501, 301, '2026-06-01', 100);
+INSERT INTO Exams VALUES (502, 302, '2026-06-03', 100);
+INSERT INTO Exams VALUES (503, 303, '2026-06-05', 100);
+INSERT INTO Exams VALUES (504, 304, '2026-06-07', 100);
+
+-- Join students with exams
+SELECT s.StudentName, c.CourseName, e.ExamDate
+FROM Students s
+JOIN Enrollments en ON s.StudentID = en.StudentID
+JOIN Courses c ON en.CourseID = c.CourseID
+JOIN Exams e ON c.CourseID = e.CourseID;
+
+-- End of 100-line SQL script
