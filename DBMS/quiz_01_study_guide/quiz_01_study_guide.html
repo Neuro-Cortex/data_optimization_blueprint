@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>quiz_01_study_guide.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%93%8B-quiz-1--study-guide--syllabus">📋 Quiz 1 — Study Guide &amp; Syllabus</h1>
+<blockquote>
+<p><strong>Course:</strong> RDBMS Lab | <strong>Quiz Date:</strong> 13/04/2026<br>
+<strong>Marks:</strong> 20 | <strong>Duration:</strong> 40 minutes<br>
+<strong>Covers:</strong> Lab 01, Lab 02, Lab 03, Lab 04</p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%93%A2-general-instructions">📢 General Instructions</h2>
+<ul>
+<li>This is a <strong>closed-book, no-internet</strong> exam.</li>
+<li>The quiz uses a <strong>scenario-based</strong> database. The schema and data will be provided in the question paper — <strong>you do not need to memorize any tables</strong>.</li>
+<li>Focus on <strong>understanding concepts</strong> and <strong>writing correct SQL queries</strong>.</li>
+<li>Partial marks are given for correct logic even with minor syntax errors.</li>
+<li><strong>No marks deducted</strong> for missing semicolons.</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-topics-to-study">📚 Topics to Study</h2>
+<h3 id="from-lab-01--introduction-to-rdbms">From Lab 01 — Introduction to RDBMS</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What You Should Know</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is RDBMS</td>
+<td>Tables, rows, columns, PK, FK</td>
+</tr>
+<tr>
+<td>ACID Properties</td>
+<td>Define each: Atomicity, Consistency, Isolation, Durability</td>
+</tr>
+<tr>
+<td>SQL Categories</td>
+<td>Know which commands belong to DDL, DML, DCL, TCL</td>
+</tr>
+<tr>
+<td>Data Types</td>
+<td>When to use INT, VARCHAR, DECIMAL, DATE, ENUM, BOOLEAN</td>
+</tr>
+<tr>
+<td>Constraints</td>
+<td>PK, NOT NULL, UNIQUE, DEFAULT, CHECK, AUTO_INCREMENT</td>
+</tr>
+<tr>
+<td>CREATE TABLE</td>
+<td>Write correct syntax with columns and constraints</td>
+</tr>
+<tr>
+<td>INSERT INTO</td>
+<td>Single-row and multi-row insert syntax</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Practice:</strong></p>
+<ul>
+<li>Write a <code>CREATE TABLE</code> from scratch with at least 5 constraints.</li>
+<li>Identify what SQL category a command belongs to (e.g., <code>ALTER TABLE</code> → DDL).</li>
+</ul>
+<hr>
+<h3 id="from-lab-02--database-design">From Lab 02 — Database Design</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What You Should Know</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normalization</td>
+<td>1NF: atomic values. 2NF: no partial dependency. 3NF: no transitive dependency</td>
+</tr>
+<tr>
+<td>When a table violates 1NF/2NF/3NF</td>
+<td>Given a table, identify which normal form is violated and why</td>
+</tr>
+<tr>
+<td>Primary Key types</td>
+<td>Surrogate (AUTO_INCREMENT) vs Natural (email) vs Composite</td>
+</tr>
+<tr>
+<td>Foreign Keys</td>
+<td>Syntax, purpose, and what happens with ON DELETE CASCADE / SET NULL / RESTRICT</td>
+</tr>
+<tr>
+<td>DROP vs TRUNCATE vs DELETE</td>
+<td>Know the differences: structure removal, WHERE clause, recoverability, AUTO_INCREMENT</td>
+</tr>
+<tr>
+<td>ALTER TABLE</td>
+<td>ADD, MODIFY, RENAME, DROP columns</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Practice:</strong></p>
+<ul>
+<li>Given an unnormalized table, convert it to 3NF step by step.</li>
+<li>Explain what happens when you delete a parent row with CASCADE vs SET NULL.</li>
+</ul>
+<hr>
+<h3 id="from-lab-03--basic-sql-queries">From Lab 03 — Basic SQL Queries</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What You Should Know</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT + WHERE</td>
+<td>Filtering rows with conditions</td>
+</tr>
+<tr>
+<td>Logical operators</td>
+<td>AND, OR, NOT — and why <strong>parentheses matter</strong></td>
+</tr>
+<tr>
+<td>BETWEEN, IN, LIKE</td>
+<td>Range checks, list matching, pattern matching (<code>%</code> and <code>_</code>)</td>
+</tr>
+<tr>
+<td>String functions</td>
+<td>CONCAT, UPPER, LOWER, LENGTH, SUBSTRING, REPLACE</td>
+</tr>
+<tr>
+<td>Date functions</td>
+<td>NOW, CURDATE, YEAR, MONTH, DATEDIFF, DATE_FORMAT</td>
+</tr>
+<tr>
+<td>NULL handling</td>
+<td><code>IS NULL</code>, <code>IS NOT NULL</code>, why <code>= NULL</code> doesn't work, COALESCE, IFNULL</td>
+</tr>
+<tr>
+<td>NULL arithmetic</td>
+<td><code>10 + NULL = NULL</code>, <code>NULL = NULL</code> is <strong>not</strong> TRUE</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>ASC/DESC, multi-column sorting</td>
+</tr>
+<tr>
+<td>LIMIT / OFFSET</td>
+<td>Top-N queries, pagination</td>
+</tr>
+<tr>
+<td>DISTINCT</td>
+<td>Removing duplicate rows from results</td>
+</tr>
+<tr>
+<td>Aliases</td>
+<td>Column aliases (<code>AS</code>), table aliases for JOINs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Practice:</strong></p>
+<ul>
+<li>Write a query using LIKE with <code>%</code> to find emails from Gmail.</li>
+<li>Use COALESCE to replace NULL with a default value.</li>
+<li>Predict the output of <code>SELECT NULL + 5, NULL = NULL, NULL IS NULL;</code></li>
+</ul>
+<hr>
+<h3 id="from-lab-04--intermediate-sql-joins-aggregates-subqueries">From Lab 04 — Intermediate SQL (JOINs, Aggregates, Subqueries)</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What You Should Know</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INNER JOIN</td>
+<td>Returns only matching rows from both tables</td>
+</tr>
+<tr>
+<td>LEFT JOIN</td>
+<td>All from left table + matching from right (NULL if no match)</td>
+</tr>
+<tr>
+<td>RIGHT JOIN</td>
+<td>All from right table + matching from left</td>
+</tr>
+<tr>
+<td>LEFT JOIN + WHERE IS NULL</td>
+<td>The &quot;find missing / orphan&quot; pattern</td>
+</tr>
+<tr>
+<td>Multi-table JOINs</td>
+<td>Chaining 3+ tables in one query</td>
+</tr>
+<tr>
+<td>COUNT, SUM, AVG, MIN, MAX</td>
+<td>Aggregate functions — collapse rows into a single value</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>Split rows into groups, apply aggregate per group</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td>Filter <strong>groups</strong> (vs WHERE which filters <strong>rows</strong>)</td>
+</tr>
+<tr>
+<td>WHERE vs HAVING</td>
+<td>WHERE runs before GROUP BY; HAVING runs after. Aggregates only in HAVING.</td>
+</tr>
+<tr>
+<td>SQL Execution Order</td>
+<td>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY</td>
+</tr>
+<tr>
+<td>Subqueries</td>
+<td>Scalar (single value), table (IN list), correlated (references outer query)</td>
+</tr>
+<tr>
+<td>EXISTS vs IN</td>
+<td>EXISTS stops at first match; IN evaluates entire subquery</td>
+</tr>
+</tbody>
+</table>
+<p><strong>⚡ This is the most heavily tested topic. Practice writing queries with JOINs + GROUP BY + HAVING.</strong></p>
+<p><strong>Practice:</strong></p>
+<ul>
+<li>Find customers who haven't placed any orders (LEFT JOIN + IS NULL).</li>
+<li>Count products per category, show only categories with &gt; 3 products.</li>
+<li>Find products priced above the average (subquery in WHERE).</li>
+<li>Write a 3-table JOIN with GROUP BY and HAVING.</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%90-quiz-format-what-to-expect">📐 Quiz Format (what to expect)</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Type</th>
+<th style="text-align:center">Marks</th>
+<th style="text-align:center">Time Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>5 Multiple Choice Questions</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">~8 min</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>2 questions: Predict query output / Find an error</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">~8 min</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>6 SQL query writing questions (scenario-based)</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">~22 min</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td style="text-align:center"><strong>20</strong></td>
+<td style="text-align:center"><strong>~38 min</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%92%A1-tips-for-success">💡 Tips for Success</h2>
+<ol>
+<li><strong>Read the schema and data carefully</strong> before writing any query.</li>
+<li><strong>Start with the easy questions</strong> in Section C — don't get stuck on hard ones.</li>
+<li>For JOINs: always ask yourself <em>&quot;Do I need ALL rows from one side?&quot;</em> → if yes, use LEFT JOIN.</li>
+<li>For GROUP BY: if the question says &quot;per category&quot; or &quot;per customer&quot; → that's GROUP BY.</li>
+<li>For HAVING: if the question says &quot;only show groups where count &gt; X&quot; → that's HAVING.</li>
+<li><strong>Write column aliases</strong> (<code>AS</code>) — it makes your queries clearer and shows understanding.</li>
+<li>Practice the <strong>&quot;find missing&quot; pattern</strong>: <code>LEFT JOIN ... WHERE right_table.pk IS NULL</code>.</li>
+</ol>
+<hr>
+<h2 id="%F0%9F%93%96-study-resources">📖 Study Resources</h2>
+<ul>
+<li>Lab notes: <code>LAB_01_NOTES.md</code> through <code>LAB_04_NOTES.md</code></li>
+<li>Example SQL files in each lab's <code>examples/</code> folder</li>
+<li>Practice by running queries on <code>ecommerce_db</code></li>
+</ul>
+<blockquote>
+<p><strong>Good luck! 🍀</strong></p>
+</blockquote>
+
+</body>
+</html>

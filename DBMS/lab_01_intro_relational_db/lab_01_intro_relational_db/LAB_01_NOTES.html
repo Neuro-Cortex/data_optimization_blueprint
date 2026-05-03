@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAB_01_NOTES.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lab-01--introduction-to-relational-databases--mysql-setup">Lab 01 — Introduction to Relational Databases &amp; MySQL Setup</h1>
+<blockquote>
+<p><strong>Duration:</strong> 2 hours | <strong>Type:</strong> Lab Session | <strong>CO:</strong> CO2<br>
+<strong>Goal:</strong> Students will be familiarized with relational database systems and the environment to work with them.</p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%93%8B-session-outline">📋 Session Outline</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00 – 0:20</td>
+<td>Course overview &amp; RDBMS theory</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0:20 – 0:40</td>
+<td>MySQL installation &amp; tools</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0:40 – 0:55</td>
+<td>Creating databases &amp; data types</td>
+<td><code>01_create_database.sql</code>, <code>02_data_types.sql</code></td>
+</tr>
+<tr>
+<td>0:55 – 1:05</td>
+<td>☕ Break</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1:05 – 1:30</td>
+<td>Creating tables with constraints</td>
+<td><code>03_create_tables.sql</code></td>
+</tr>
+<tr>
+<td>1:30 – 1:45</td>
+<td>Inserting &amp; querying data</td>
+<td><code>04_insert_data.sql</code>, <code>05_basic_select.sql</code></td>
+</tr>
+<tr>
+<td>1:45 – 2:00</td>
+<td>Lab Task briefing</td>
+<td><code>labtask/</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-course-overview">1. Course Overview</h2>
+<p>Welcome to <strong>Relational Database Management Systems Lab</strong>. This semester we will:</p>
+<ol>
+<li><strong>Design</strong> relational databases from real-world case studies (ERD, normalization)</li>
+<li><strong>Implement</strong> databases using MySQL with SQL queries (basic → advanced)</li>
+<li><strong>Build</strong> web applications using PHP + MySQL</li>
+<li><strong>Develop</strong> a team project using database theories and techniques</li>
+<li><strong>Secure</strong> databases with user management, privileges, and backup strategies</li>
+</ol>
+<h3 id="course-assessment">Course Assessment</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align:center">CO</th>
+<th style="text-align:center">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attendance</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center">5%</td>
+</tr>
+<tr>
+<td>Class Performance</td>
+<td style="text-align:center">CO1</td>
+<td style="text-align:center">20%</td>
+</tr>
+<tr>
+<td>Presentation, Report &amp; Viva</td>
+<td style="text-align:center">CO3</td>
+<td style="text-align:center">25%</td>
+</tr>
+<tr>
+<td>Project Development</td>
+<td style="text-align:center">CO4</td>
+<td style="text-align:center">10%</td>
+</tr>
+<tr>
+<td>Lab Quiz</td>
+<td style="text-align:center">CO2</td>
+<td style="text-align:center">40%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tools-well-use">Tools We'll Use</h3>
+<ul>
+<li><strong>MySQL 8.x</strong> — Our relational database engine</li>
+<li><strong>MySQL Workbench</strong> — GUI for database design and queries</li>
+<li><strong>MySQL CLI</strong> — Command-line interface for quick queries</li>
+<li><strong>XAMPP</strong> — Apache + PHP + MySQL stack (for Lab 5 onwards)</li>
+<li><strong>VS Code</strong> — For editing SQL files and PHP code</li>
+</ul>
+<hr>
+<h2 id="2-what-is-a-database">2. What is a Database?</h2>
+<p>A <strong>database</strong> is an organized collection of structured data stored electronically. Think of it as a digital filing cabinet that allows you to:</p>
+<ul>
+<li><strong>Store</strong> millions of records efficiently</li>
+<li><strong>Retrieve</strong> specific data in milliseconds</li>
+<li><strong>Update</strong> data without inconsistency</li>
+<li><strong>Share</strong> data across multiple users simultaneously</li>
+</ul>
+<h3 id="21-why-not-just-use-excel">2.1 Why Not Just Use Excel?</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align:center">Spreadsheet</th>
+<th style="text-align:center">Database</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Handle millions of rows</td>
+<td style="text-align:center">❌ Slow/crashes</td>
+<td style="text-align:center">✅ Optimized</td>
+</tr>
+<tr>
+<td>Multiple simultaneous users</td>
+<td style="text-align:center">❌ Conflicts</td>
+<td style="text-align:center">✅ Concurrency control</td>
+</tr>
+<tr>
+<td>Data validation rules</td>
+<td style="text-align:center">⚠️ Limited</td>
+<td style="text-align:center">✅ Constraints</td>
+</tr>
+<tr>
+<td>Relationships between data</td>
+<td style="text-align:center">❌ Manual</td>
+<td style="text-align:center">✅ Foreign keys</td>
+</tr>
+<tr>
+<td>Security &amp; access control</td>
+<td style="text-align:center">❌ File-level</td>
+<td style="text-align:center">✅ User/role-level</td>
+</tr>
+<tr>
+<td>Backup &amp; recovery</td>
+<td style="text-align:center">❌ Manual</td>
+<td style="text-align:center">✅ Built-in tools</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-types-of-databases">2.2 Types of Databases</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational (RDBMS)</strong></td>
+<td>MySQL, PostgreSQL, Oracle, SQL Server</td>
+<td>Structured data with relationships</td>
+</tr>
+<tr>
+<td><strong>NoSQL (Document)</strong></td>
+<td>MongoDB, CouchDB</td>
+<td>Flexible, schema-less data</td>
+</tr>
+<tr>
+<td><strong>NoSQL (Key-Value)</strong></td>
+<td>Redis, DynamoDB</td>
+<td>Caching, sessions</td>
+</tr>
+<tr>
+<td><strong>NoSQL (Graph)</strong></td>
+<td>Neo4j</td>
+<td>Social networks, recommendations</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>This course focuses on RDBMS</strong> — the most widely used type in enterprise applications.</p>
+</blockquote>
+<hr>
+<h2 id="3-relational-database-concepts">3. Relational Database Concepts</h2>
+<h3 id="31-the-relational-model">3.1 The Relational Model</h3>
+<p>A relational database organizes data into <strong>tables</strong> (also called <strong>relations</strong>). Each table has:</p>
+<ul>
+<li><strong>Columns</strong> (attributes) — define what data is stored</li>
+<li><strong>Rows</strong> (tuples/records) — each row is one data entry</li>
+<li><strong>Primary Key (PK)</strong> — uniquely identifies each row</li>
+<li><strong>Foreign Key (FK)</strong> — links one table to another</li>
+</ul>
+<p><strong>Example: A <code>students</code> table</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">student_id (PK)</th>
+<th>name</th>
+<th>email</th>
+<th style="text-align:center">gpa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq Ahmed</td>
+<td>rafiq@uiu.ac.bd</td>
+<td style="text-align:center">3.75</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Nusrat Jahan</td>
+<td>nusrat@uiu.ac.bd</td>
+<td style="text-align:center">3.90</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>Tanvir Hasan</td>
+<td>tanvir@uiu.ac.bd</td>
+<td style="text-align:center">3.50</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-acid-properties">3.2 ACID Properties</h3>
+<p>Every reliable RDBMS guarantees <strong>ACID</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong>tomicity</td>
+<td>All or nothing — a transaction either fully completes or fully rolls back</td>
+<td>Transferring money: debit AND credit both succeed, or neither does</td>
+</tr>
+<tr>
+<td><strong>C</strong>onsistency</td>
+<td>Data always moves from one valid state to another</td>
+<td>GPA must be between 0.00 and 4.00</td>
+</tr>
+<tr>
+<td><strong>I</strong>solation</td>
+<td>Concurrent transactions don't interfere with each other</td>
+<td>Two students registering for the last seat simultaneously</td>
+</tr>
+<tr>
+<td><strong>D</strong>urability</td>
+<td>Once committed, data survives crashes</td>
+<td>Power outage after <code>COMMIT</code> — data is safe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-sql--structured-query-language">3.3 SQL — Structured Query Language</h3>
+<p>SQL is the standard language for working with relational databases. It has several sub-languages:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Commands</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DDL</strong> (Data Definition)</td>
+<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
+<td>Define/modify structure</td>
+</tr>
+<tr>
+<td><strong>DML</strong> (Data Manipulation)</td>
+<td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>SELECT</code></td>
+<td>Work with data</td>
+</tr>
+<tr>
+<td><strong>DCL</strong> (Data Control)</td>
+<td><code>GRANT</code>, <code>REVOKE</code></td>
+<td>Permissions</td>
+</tr>
+<tr>
+<td><strong>TCL</strong> (Transaction Control)</td>
+<td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
+<td>Transaction management</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4-setting-up-mysql">4. Setting Up MySQL</h2>
+<h3 id="41-installation-options">4.1 Installation Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Platform</th>
+<th>Recommended For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XAMPP</strong></td>
+<td>Windows/Mac/Linux</td>
+<td>This course — includes Apache + PHP + MySQL</td>
+</tr>
+<tr>
+<td><strong>MySQL Installer</strong></td>
+<td>Windows</td>
+<td>MySQL-only installation</td>
+</tr>
+<tr>
+<td><strong>Homebrew</strong> (<code>brew install mysql</code>)</td>
+<td>Mac</td>
+<td>Advanced users</td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>All</td>
+<td>Advanced setup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-step-by-step-xampp-installation">4.2 Step-by-Step: XAMPP Installation</h3>
+<ol>
+<li><strong>Download XAMPP</strong> from <a href="https://www.apachefriends.org">https://www.apachefriends.org</a></li>
+<li><strong>Install</strong> with default settings (make sure MySQL is checked)</li>
+<li><strong>Start XAMPP Control Panel</strong> → Start <strong>Apache</strong> and <strong>MySQL</strong></li>
+<li><strong>Verify:</strong> Open browser → go to <code>http://localhost/phpmyadmin</code></li>
+<li><strong>Open MySQL CLI:</strong> In XAMPP, click &quot;Shell&quot; → type <code>mysql -u root</code></li>
+</ol>
+<h3 id="43-mysql-workbench">4.3 MySQL Workbench</h3>
+<p>MySQL Workbench provides a visual interface for:</p>
+<ul>
+<li>Writing and executing SQL queries</li>
+<li>Designing ERDs (Entity-Relationship Diagrams)</li>
+<li>Managing users, schemas, and server settings</li>
+</ul>
+<p><strong>Download:</strong> <a href="https://dev.mysql.com/downloads/workbench/">https://dev.mysql.com/downloads/workbench/</a></p>
+<h3 id="44-connecting-to-mysql-via-cli">4.4 Connecting to MySQL via CLI</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Connect to MySQL (default: no password for root in XAMPP)</span>
+mysql -u root
+
+<span class="hljs-comment">-- If password is set:</span>
+mysql -u root -p
+</div></code></pre>
+<hr>
+<h2 id="5-creating-your-first-database">5. Creating Your First Database</h2>
+<h3 id="51-database-operations">5.1 Database Operations</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- See all existing databases</span>
+<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">DATABASES</span>;
+
+<span class="hljs-comment">-- Create a new database</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> shop_db;
+
+<span class="hljs-comment">-- Use (switch to) the database</span>
+<span class="hljs-keyword">USE</span> shop_db;
+
+<span class="hljs-comment">-- Check which database you're currently using</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DATABASE</span>();
+
+<span class="hljs-comment">-- Delete a database (CAREFUL!)</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">DATABASE</span> shop_db;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/01_create_database.sql</code></p>
+</blockquote>
+<h3 id="52-naming-conventions">5.2 Naming Conventions</h3>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Good ✅</th>
+<th>Bad ❌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use lowercase</td>
+<td><code>student_records</code></td>
+<td><code>StudentRecords</code></td>
+</tr>
+<tr>
+<td>Use underscores</td>
+<td><code>order_items</code></td>
+<td><code>order-items</code>, <code>orderitems</code></td>
+</tr>
+<tr>
+<td>Be descriptive</td>
+<td><code>product_categories</code></td>
+<td><code>pc</code>, <code>tbl1</code></td>
+</tr>
+<tr>
+<td>Avoid reserved words</td>
+<td><code>user_accounts</code></td>
+<td><code>order</code>, <code>select</code></td>
+</tr>
+<tr>
+<td>Singular table names</td>
+<td><code>student</code></td>
+<td><code>students</code> (debatable — pick one and be consistent)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>For this course</strong>, we'll use <strong>lowercase with underscores</strong> and <strong>plural table names</strong> (e.g., <code>students</code>, <code>orders</code>).</p>
+</blockquote>
+<hr>
+<h2 id="6-mysql-data-types">6. MySQL Data Types</h2>
+<p>Choosing the right data type is critical for performance, storage, and data integrity.</p>
+<h3 id="61-numeric-types">6.1 Numeric Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align:center">Bytes</th>
+<th>Range</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TINYINT</code></td>
+<td style="text-align:center">1</td>
+<td>-128 to 127</td>
+<td>Age, status flags</td>
+</tr>
+<tr>
+<td><code>SMALLINT</code></td>
+<td style="text-align:center">2</td>
+<td>-32,768 to 32,767</td>
+<td>Year, small counts</td>
+</tr>
+<tr>
+<td><code>INT</code></td>
+<td style="text-align:center">4</td>
+<td>-2.1B to 2.1B</td>
+<td>IDs, quantities</td>
+</tr>
+<tr>
+<td><code>BIGINT</code></td>
+<td style="text-align:center">8</td>
+<td>Very large</td>
+<td>Financial IDs</td>
+</tr>
+<tr>
+<td><code>DECIMAL(p,s)</code></td>
+<td style="text-align:center">Varies</td>
+<td>Exact</td>
+<td>Money: <code>DECIMAL(10,2)</code></td>
+</tr>
+<tr>
+<td><code>FLOAT</code></td>
+<td style="text-align:center">4</td>
+<td>Approximate</td>
+<td>Scientific data</td>
+</tr>
+<tr>
+<td><code>DOUBLE</code></td>
+<td style="text-align:center">8</td>
+<td>Approximate</td>
+<td>Scientific data</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Never use <code>FLOAT</code> for money!</strong> Use <code>DECIMAL(10,2)</code> — floating-point math causes rounding errors.</p>
+</blockquote>
+<h3 id="62-string-types">6.2 String Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th style="text-align:center">Max Length</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CHAR(n)</code></td>
+<td style="text-align:center">255</td>
+<td>Fixed-length: country codes <code>CHAR(2)</code></td>
+</tr>
+<tr>
+<td><code>VARCHAR(n)</code></td>
+<td style="text-align:center">65,535</td>
+<td>Variable-length: names, emails</td>
+</tr>
+<tr>
+<td><code>TEXT</code></td>
+<td style="text-align:center">65,535</td>
+<td>Long text: descriptions, comments</td>
+</tr>
+<tr>
+<td><code>MEDIUMTEXT</code></td>
+<td style="text-align:center">16MB</td>
+<td>Articles, blog posts</td>
+</tr>
+<tr>
+<td><code>LONGTEXT</code></td>
+<td style="text-align:center">4GB</td>
+<td>Very long content</td>
+</tr>
+<tr>
+<td><code>ENUM('a','b','c')</code></td>
+<td style="text-align:center">—</td>
+<td>Predefined choices: status, gender</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-datetime-types">6.3 Date/Time Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Format</th>
+<th>Example</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATE</code></td>
+<td>YYYY-MM-DD</td>
+<td><code>2025-03-03</code></td>
+<td>Birthdays, deadlines</td>
+</tr>
+<tr>
+<td><code>TIME</code></td>
+<td>HH:MM:SS</td>
+<td><code>14:30:00</code></td>
+<td>Durations, schedules</td>
+</tr>
+<tr>
+<td><code>DATETIME</code></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td><code>2025-03-03 14:30:00</code></td>
+<td>Timestamps</td>
+</tr>
+<tr>
+<td><code>TIMESTAMP</code></td>
+<td>Same as DATETIME</td>
+<td>Auto-updates</td>
+<td><code>created_at</code>, <code>updated_at</code></td>
+</tr>
+<tr>
+<td><code>YEAR</code></td>
+<td>YYYY</td>
+<td><code>2025</code></td>
+<td>Year-only data</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/02_data_types.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="7-creating-tables">7. Creating Tables</h2>
+<h3 id="71-create-table-syntax">7.1 CREATE TABLE Syntax</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name (
+    column1  datatype  <span class="hljs-keyword">constraints</span>,
+    column2  datatype  <span class="hljs-keyword">constraints</span>,
+    ...
+    table_constraints
+);
+</div></code></pre>
+<h3 id="72-column-constraints">7.2 Column Constraints</h3>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NOT NULL</code></td>
+<td>Cannot be empty</td>
+<td><code>name VARCHAR(100) NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>DEFAULT value</code></td>
+<td>Default if not provided</td>
+<td><code>status VARCHAR(20) DEFAULT 'active'</code></td>
+</tr>
+<tr>
+<td><code>UNIQUE</code></td>
+<td>No duplicate values</td>
+<td><code>email VARCHAR(150) UNIQUE</code></td>
+</tr>
+<tr>
+<td><code>PRIMARY KEY</code></td>
+<td>Unique identifier for each row</td>
+<td><code>id INT PRIMARY KEY</code></td>
+</tr>
+<tr>
+<td><code>AUTO_INCREMENT</code></td>
+<td>Auto-generates sequential numbers</td>
+<td><code>id INT AUTO_INCREMENT PRIMARY KEY</code></td>
+</tr>
+<tr>
+<td><code>CHECK</code></td>
+<td>Validates values</td>
+<td><code>CHECK (price &gt;= 0)</code></td>
+</tr>
+<tr>
+<td><code>FOREIGN KEY</code></td>
+<td>References another table</td>
+<td>Covered in Lab 02</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-example-building-tables">7.3 Example: Building Tables</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> categories (
+    category_id   <span class="hljs-built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span>          <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">UNIQUE</span>,
+    description   <span class="hljs-built_in">TEXT</span>,
+    created_at    <span class="hljs-built_in">TIMESTAMP</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products (
+    product_id    <span class="hljs-built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span>          <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">200</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    price         <span class="hljs-built_in">DECIMAL</span>(<span class="hljs-number">10</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">CHECK</span> (price &gt;= <span class="hljs-number">0</span>),
+    stock         <span class="hljs-built_in">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>,
+    category_id   <span class="hljs-built_in">INT</span>,
+    is_active     <span class="hljs-built_in">BOOLEAN</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">TRUE</span>,
+    created_at    <span class="hljs-built_in">TIMESTAMP</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>,
+    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (category_id) <span class="hljs-keyword">REFERENCES</span> categories(category_id)
+);
+</div></code></pre>
+<h3 id="74-viewing-table-structure">7.4 Viewing Table Structure</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Show all tables in current database</span>
+<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">TABLES</span>;
+
+<span class="hljs-comment">-- Show column details of a table</span>
+<span class="hljs-keyword">DESCRIBE</span> products;
+<span class="hljs-comment">-- or</span>
+<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">COLUMNS</span> <span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Show the full CREATE TABLE statement</span>
+<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/03_create_tables.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="8-inserting-data">8. Inserting Data</h2>
+<h3 id="81-insert-syntax">8.1 INSERT Syntax</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Insert a single row (specifying columns)</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> categories (<span class="hljs-keyword">name</span>, description)
+<span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Electronics'</span>, <span class="hljs-string">'Gadgets and devices'</span>);
+
+<span class="hljs-comment">-- Insert a single row (all columns — must match order)</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> categories <span class="hljs-keyword">VALUES</span> (<span class="hljs-literal">NULL</span>, <span class="hljs-string">'Books'</span>, <span class="hljs-string">'Physical and digital books'</span>, <span class="hljs-keyword">NOW</span>());
+
+<span class="hljs-comment">-- Insert multiple rows at once</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> categories (<span class="hljs-keyword">name</span>, description) <span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-string">'Clothing'</span>, <span class="hljs-string">'Apparel and accessories'</span>),
+    (<span class="hljs-string">'Food'</span>, <span class="hljs-string">'Groceries and snacks'</span>),
+    (<span class="hljs-string">'Sports'</span>, <span class="hljs-string">'Sports equipment and gear'</span>);
+</div></code></pre>
+<h3 id="82-autoincrement-behavior">8.2 AUTO_INCREMENT Behavior</h3>
+<p>When a column is <code>AUTO_INCREMENT</code>:</p>
+<ul>
+<li>You can pass <code>NULL</code> or omit it — MySQL generates the next number</li>
+<li>After inserting, use <code>SELECT LAST_INSERT_ID();</code> to get the generated ID</li>
+<li>The counter never resets even if you delete rows (use <code>ALTER TABLE t AUTO_INCREMENT = 1;</code> to reset)</li>
+</ul>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/04_insert_data.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="9-basic-select-queries">9. Basic SELECT Queries</h2>
+<h3 id="91-retrieving-data">9.1 Retrieving Data</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Select all columns, all rows</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> categories;
+
+<span class="hljs-comment">-- Select specific columns</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, description <span class="hljs-keyword">FROM</span> categories;
+
+<span class="hljs-comment">-- Select with a condition</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> price &gt; <span class="hljs-number">100</span>;
+
+<span class="hljs-comment">-- Count rows</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">FROM</span> products;
+</div></code></pre>
+<h3 id="92-a-quick-preview">9.2 A Quick Preview</h3>
+<p>We'll dive deep into <code>SELECT</code> in Lab 03. For now, just know:</p>
+<ul>
+<li><code>*</code> means all columns</li>
+<li><code>WHERE</code> filters rows</li>
+<li><code>ORDER BY</code> sorts results</li>
+<li><code>LIMIT</code> restricts how many rows to return</li>
+</ul>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/05_basic_select.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="%E2%9A%A0%EF%B8%8F-common-pitfalls">⚠️ Common Pitfalls</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forgetting <code>USE database_name;</code></td>
+<td>Queries run on wrong DB</td>
+<td>Always <code>USE</code> first</td>
+</tr>
+<tr>
+<td><code>FLOAT</code> for money</td>
+<td>Rounding errors: <code>0.1 + 0.2 ≠ 0.3</code></td>
+<td>Use <code>DECIMAL(10,2)</code></td>
+</tr>
+<tr>
+<td>No <code>NOT NULL</code> on required fields</td>
+<td>Allows empty data</td>
+<td>Add <code>NOT NULL</code> to mandatory columns</td>
+</tr>
+<tr>
+<td>Forgetting <code>AUTO_INCREMENT</code> on PK</td>
+<td>Must manually provide IDs</td>
+<td>Add it to avoid errors</td>
+</tr>
+<tr>
+<td>Missing semicolons</td>
+<td>MySQL waits for more input</td>
+<td>End every statement with <code>;</code></td>
+</tr>
+<tr>
+<td>Using reserved words as names</td>
+<td>Syntax errors</td>
+<td>Rename or use backticks <code>`order`</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%94%97-in-the-industry">🔗 In the Industry</h2>
+<ul>
+<li><strong>MySQL</strong> powers some of the world's biggest websites: Facebook, Twitter, YouTube, Netflix</li>
+<li><strong>Schema design</strong> decisions made today will affect performance for years — choose data types carefully</li>
+<li><strong>Naming conventions</strong> are critical in teams — inconsistent names cause bugs and confusion</li>
+<li><strong>ACID compliance</strong> is what separates enterprise databases from simple file storage</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%A7%AA-lab-task-1--build-a-library-database">🧪 Lab Task 1 — Build a Library Database</h2>
+<p><strong>Duration:</strong> 30–40 minutes<br>
+<strong>Difficulty:</strong> ⭐⭐ (Easy-Medium)</p>
+<h3 id="requirements">Requirements</h3>
+<p>Build a <code>library_db</code> database with the following tables:</p>
+<ol>
+<li>
+<p><strong><code>members</code></strong> table with:</p>
+<ul>
+<li><code>member_id</code> — auto-incrementing primary key</li>
+<li><code>first_name</code>, <code>last_name</code> — required, max 50 chars each</li>
+<li><code>email</code> — required, unique, max 150 chars</li>
+<li><code>phone</code> — optional, max 15 chars</li>
+<li><code>membership_type</code> — ENUM: 'standard', 'premium', default 'standard'</li>
+<li><code>join_date</code> — defaults to current date</li>
+</ul>
+</li>
+<li>
+<p><strong><code>books</code></strong> table with:</p>
+<ul>
+<li><code>book_id</code> — auto-incrementing primary key</li>
+<li><code>title</code> — required, max 200 chars</li>
+<li><code>author</code> — required, max 100 chars</li>
+<li><code>isbn</code> — unique, exactly 13 chars</li>
+<li><code>genre</code> — max 50 chars</li>
+<li><code>price</code> — decimal, must be ≥ 0</li>
+<li><code>stock</code> — integer, default 0</li>
+<li><code>published_year</code> — YEAR type</li>
+</ul>
+</li>
+<li>
+<p><strong>Insert</strong> at least 5 members and 8 books with realistic data</p>
+</li>
+<li>
+<p><strong>Write queries</strong> to:</p>
+<ul>
+<li>Show all books</li>
+<li>Show all premium members</li>
+<li>Show books priced under 500 BDT</li>
+<li>Count total books in the library</li>
+</ul>
+</li>
+</ol>
+<h3 id="grading-criteria">Grading Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th style="text-align:center">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correct <code>CREATE DATABASE</code> and <code>USE</code></td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td><code>members</code> table with all constraints</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td><code>books</code> table with all constraints</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td>Realistic sample data (5+ members, 8+ books)</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td>All 4 queries working correctly</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td>Naming conventions and code formatting</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align:center"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bonus-challenge-%E2%AD%90">Bonus Challenge ⭐</h3>
+<p>Add a <code>borrowings</code> table that tracks which member borrowed which book, with <code>borrow_date</code> and <code>return_date</code>. This previews foreign keys from Lab 02.</p>
+<hr>
+<p><strong>📁 Reference Solution:</strong> <code>lab_01_intro_relational_db/labtask/solution.sql</code></p>
+
+</body>
+</html>

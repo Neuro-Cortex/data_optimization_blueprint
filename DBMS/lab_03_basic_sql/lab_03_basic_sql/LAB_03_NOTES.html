@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAB_03_NOTES.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lab-03--basic-sql-queries">Lab 03 — Basic SQL Queries</h1>
+<blockquote>
+<p><strong>Duration:</strong> 2 hours | <strong>Type:</strong> Lab Session | <strong>CO:</strong> CO1<br>
+<strong>Goal:</strong> Master the SELECT statement — filtering, operators, functions, sorting, and pagination.<br>
+<strong>Prerequisites:</strong> Lab 02 E-Commerce database must be created with sample data.</p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%93%8B-session-outline">📋 Session Outline</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00 – 0:15</td>
+<td>SELECT and WHERE basics</td>
+<td><code>01_select_where.sql</code></td>
+</tr>
+<tr>
+<td>0:15 – 0:30</td>
+<td>Comparison operators</td>
+<td><code>02_comparison_operators.sql</code></td>
+</tr>
+<tr>
+<td>0:30 – 0:45</td>
+<td>Math operations</td>
+<td><code>03_math_operations.sql</code></td>
+</tr>
+<tr>
+<td>0:45 – 0:55</td>
+<td>String functions</td>
+<td><code>04_string_functions.sql</code></td>
+</tr>
+<tr>
+<td>0:55 – 1:05</td>
+<td>☕ Break</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1:05 – 1:15</td>
+<td>Date functions</td>
+<td><code>05_date_functions.sql</code></td>
+</tr>
+<tr>
+<td>1:15 – 1:25</td>
+<td>NULL handling</td>
+<td><code>06_null_handling.sql</code></td>
+</tr>
+<tr>
+<td>1:25 – 1:35</td>
+<td>ORDER BY, LIMIT, OFFSET</td>
+<td><code>07_order_limit.sql</code></td>
+</tr>
+<tr>
+<td>1:35 – 1:45</td>
+<td>DISTINCT and aliases</td>
+<td><code>08_distinct_aliases.sql</code></td>
+</tr>
+<tr>
+<td>1:45 – 2:00</td>
+<td>Lab Task</td>
+<td><code>labtask/</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="0-database-setup">0. Database Setup</h2>
+<p>All examples use the E-Commerce database from Lab 02. If you haven't created it yet, run <code>lab_02_database_design/labtask/solution.sql</code> first.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">USE</span> ecommerce_db;
+</div></code></pre>
+<hr>
+<h2 id="1-select-and-where">1. SELECT and WHERE</h2>
+<h3 id="11-basic-select">1.1 Basic SELECT</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- All columns, all rows</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Specific columns only</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, stock <span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- With a filter</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> price &gt; <span class="hljs-number">10000</span>;
+</div></code></pre>
+<h3 id="12-where-with-logical-operators">1.2 WHERE with Logical Operators</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>AND</code></td>
+<td>Both conditions must be true</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>OR</code></td>
+<td>At least one condition must be true</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>NOT</code></td>
+<td>Reverses the condition</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-comment">-- AND: Electronics AND price over 50,000</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">WHERE</span> category_id = <span class="hljs-number">1</span> <span class="hljs-keyword">AND</span> price &gt; <span class="hljs-number">50000</span>;
+
+<span class="hljs-comment">-- OR: Electronics OR Sports</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, category_id <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">WHERE</span> category_id = <span class="hljs-number">1</span> <span class="hljs-keyword">OR</span> category_id = <span class="hljs-number">5</span>;
+
+<span class="hljs-comment">-- NOT: Not in Clothing category</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NOT</span> category_id = <span class="hljs-number">2</span>;
+
+<span class="hljs-comment">-- Combined: (Electronics OR Books) AND price under 30,000</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, category_id <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">WHERE</span> (category_id = <span class="hljs-number">1</span> <span class="hljs-keyword">OR</span> category_id = <span class="hljs-number">3</span>) <span class="hljs-keyword">AND</span> price &lt; <span class="hljs-number">30000</span>;
+</div></code></pre>
+<blockquote>
+<p>⚠️ <strong>Pitfall:</strong> Without parentheses, <code>AND</code> binds tighter than <code>OR</code>. Always use parentheses to make intent clear.</p>
+</blockquote>
+<hr>
+<h2 id="2-comparison-operators">2. Comparison Operators</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>=</code></td>
+<td>Equal to</td>
+<td><code>WHERE city = 'Dhaka'</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;&gt;</code> or <code>!=</code></td>
+<td>Not equal to</td>
+<td><code>WHERE status &lt;&gt; 'cancelled'</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>WHERE price &gt; 1000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>WHERE stock &lt; 10</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;=</code></td>
+<td>Greater than or equal</td>
+<td><code>WHERE gpa &gt;= 3.5</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;=</code></td>
+<td>Less than or equal</td>
+<td><code>WHERE price &lt;= 5000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>BETWEEN</code></td>
+<td>In a range (inclusive)</td>
+<td><code>WHERE price BETWEEN 1000 AND 5000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>IN</code></td>
+<td>Matches any in a list</td>
+<td><code>WHERE city IN ('Dhaka', 'Sylhet')</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>LIKE</code></td>
+<td>Pattern matching</td>
+<td><code>WHERE name LIKE '%phone%'</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-between">2.1 BETWEEN</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Products priced between 1,000 and 10,000 BDT</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">WHERE</span> price <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">1000</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">10000</span>;
+<span class="hljs-comment">-- Same as: WHERE price &gt;= 1000 AND price &lt;= 10000</span>
+</div></code></pre>
+<h3 id="22-in">2.2 IN</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Customers from specific cities</span>
+<span class="hljs-keyword">SELECT</span> first_name, last_name, city <span class="hljs-keyword">FROM</span> customers
+<span class="hljs-keyword">WHERE</span> city <span class="hljs-keyword">IN</span> (<span class="hljs-string">'Dhaka'</span>, <span class="hljs-string">'Chittagong'</span>, <span class="hljs-string">'Sylhet'</span>);
+
+<span class="hljs-comment">-- NOT IN</span>
+<span class="hljs-keyword">SELECT</span> first_name, city <span class="hljs-keyword">FROM</span> customers
+<span class="hljs-keyword">WHERE</span> city <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-string">'Dhaka'</span>);
+</div></code></pre>
+<h3 id="23-like-pattern-matching">2.3 LIKE (Pattern Matching)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Pattern</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>'A%'</code></td>
+<td>Starts with A</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'%phone'</code></td>
+<td>Ends with &quot;phone&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'%code%'</code></td>
+<td>Contains &quot;code&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'_haka'</code></td>
+<td>5 chars, ending in &quot;haka&quot;</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>'R____'</code></td>
+<td>Exactly 5 chars, starting with R</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Products containing "phone" (case-insensitive in MySQL)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%phone%'</span>;
+
+<span class="hljs-comment">-- Customers whose name starts with 'A'</span>
+<span class="hljs-keyword">SELECT</span> first_name, last_name <span class="hljs-keyword">FROM</span> customers
+<span class="hljs-keyword">WHERE</span> first_name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'A%'</span>;
+
+<span class="hljs-comment">-- Emails from Gmail</span>
+<span class="hljs-keyword">SELECT</span> first_name, email <span class="hljs-keyword">FROM</span> customers
+<span class="hljs-keyword">WHERE</span> email <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%@gmail.com'</span>;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/01_select_where.sql</code> and <code>examples/02_comparison_operators.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="3-math-operations">3. Math Operations</h2>
+<p>SQL can perform arithmetic directly in queries:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Calculate discounted price (20% off)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, price * <span class="hljs-number">0.80</span> <span class="hljs-keyword">AS</span> discounted_price
+<span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Calculate total inventory value</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, stock, (price * stock) <span class="hljs-keyword">AS</span> inventory_value
+<span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Price with 15% VAT</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price, price * <span class="hljs-number">1.15</span> <span class="hljs-keyword">AS</span> price_with_vat
+<span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Useful math functions</span>
+<span class="hljs-keyword">SELECT</span> 
+    <span class="hljs-keyword">ABS</span>(<span class="hljs-number">-25</span>)      <span class="hljs-keyword">AS</span> absolute_value,    <span class="hljs-comment">-- 25</span>
+    <span class="hljs-keyword">CEIL</span>(<span class="hljs-number">4.3</span>)     <span class="hljs-keyword">AS</span> <span class="hljs-keyword">ceiling</span>,           <span class="hljs-comment">-- 5</span>
+    <span class="hljs-keyword">FLOOR</span>(<span class="hljs-number">4.7</span>)    <span class="hljs-keyword">AS</span> floored,           <span class="hljs-comment">-- 4</span>
+    <span class="hljs-keyword">ROUND</span>(<span class="hljs-number">3.456</span>, <span class="hljs-number">2</span>)  <span class="hljs-keyword">AS</span> rounded,        <span class="hljs-comment">-- 3.46</span>
+    <span class="hljs-keyword">MOD</span>(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>)    <span class="hljs-keyword">AS</span> modulo,            <span class="hljs-comment">-- 1</span>
+    <span class="hljs-keyword">POWER</span>(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>)  <span class="hljs-keyword">AS</span> power_result,      <span class="hljs-comment">-- 1024</span>
+    <span class="hljs-keyword">SQRT</span>(<span class="hljs-number">144</span>)     <span class="hljs-keyword">AS</span> square_root;       <span class="hljs-comment">-- 12</span>
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/03_math_operations.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="4-string-functions">4. String Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CONCAT(a, b)</code></td>
+<td>Join strings</td>
+<td><code>CONCAT(first, ' ', last)</code></td>
+</tr>
+<tr>
+<td><code>UPPER(s)</code></td>
+<td>To uppercase</td>
+<td><code>UPPER('hello')</code> → <code>'HELLO'</code></td>
+</tr>
+<tr>
+<td><code>LOWER(s)</code></td>
+<td>To lowercase</td>
+<td><code>LOWER('HELLO')</code> → <code>'hello'</code></td>
+</tr>
+<tr>
+<td><code>LENGTH(s)</code></td>
+<td>Character count</td>
+<td><code>LENGTH('Dhaka')</code> → <code>5</code></td>
+</tr>
+<tr>
+<td><code>SUBSTRING(s, start, len)</code></td>
+<td>Extract part</td>
+<td><code>SUBSTRING('Hello', 1, 3)</code> → <code>'Hel'</code></td>
+</tr>
+<tr>
+<td><code>TRIM(s)</code></td>
+<td>Remove spaces</td>
+<td><code>TRIM('  hi  ')</code> → <code>'hi'</code></td>
+</tr>
+<tr>
+<td><code>REPLACE(s, old, new)</code></td>
+<td>Replace text</td>
+<td><code>REPLACE('abc', 'b', 'x')</code> → <code>'axc'</code></td>
+</tr>
+<tr>
+<td><code>LEFT(s, n)</code></td>
+<td>First n chars</td>
+<td><code>LEFT('Hello', 3)</code> → <code>'Hel'</code></td>
+</tr>
+<tr>
+<td><code>RIGHT(s, n)</code></td>
+<td>Last n chars</td>
+<td><code>RIGHT('Hello', 3)</code> → <code>'llo'</code></td>
+</tr>
+<tr>
+<td><code>REVERSE(s)</code></td>
+<td>Reverse string</td>
+<td><code>REVERSE('abc')</code> → <code>'cba'</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Full name from first + last</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">CONCAT</span>(first_name, <span class="hljs-string">' '</span>, last_name) <span class="hljs-keyword">AS</span> full_name
+<span class="hljs-keyword">FROM</span> customers;
+
+<span class="hljs-comment">-- Email username (before @)</span>
+<span class="hljs-keyword">SELECT</span> email, SUBSTRING_INDEX(email, <span class="hljs-string">'@'</span>, <span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> username
+<span class="hljs-keyword">FROM</span> customers;
+
+<span class="hljs-comment">-- Uppercase product names</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">UPPER</span>(<span class="hljs-keyword">name</span>) <span class="hljs-keyword">AS</span> product_name, price
+<span class="hljs-keyword">FROM</span> products;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/04_string_functions.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="5-date-functions">5. Date Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Returns</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NOW()</code></td>
+<td>Current date+time</td>
+<td><code>2025-03-03 14:30:00</code></td>
+</tr>
+<tr>
+<td><code>CURDATE()</code></td>
+<td>Current date</td>
+<td><code>2025-03-03</code></td>
+</tr>
+<tr>
+<td><code>CURTIME()</code></td>
+<td>Current time</td>
+<td><code>14:30:00</code></td>
+</tr>
+<tr>
+<td><code>YEAR(d)</code></td>
+<td>Year part</td>
+<td><code>YEAR('2025-03-03')</code> → <code>2025</code></td>
+</tr>
+<tr>
+<td><code>MONTH(d)</code></td>
+<td>Month part</td>
+<td><code>MONTH('2025-03-03')</code> → <code>3</code></td>
+</tr>
+<tr>
+<td><code>DAY(d)</code></td>
+<td>Day part</td>
+<td><code>DAY('2025-03-03')</code> → <code>3</code></td>
+</tr>
+<tr>
+<td><code>DATEDIFF(d1, d2)</code></td>
+<td>Days between</td>
+<td><code>DATEDIFF('2025-03-10', '2025-03-01')</code> → <code>9</code></td>
+</tr>
+<tr>
+<td><code>DATE_ADD(d, INTERVAL)</code></td>
+<td>Add to date</td>
+<td><code>DATE_ADD('2025-03-01', INTERVAL 7 DAY)</code></td>
+</tr>
+<tr>
+<td><code>DATE_FORMAT(d, fmt)</code></td>
+<td>Format output</td>
+<td><code>DATE_FORMAT(NOW(), '%d/%m/%Y')</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Orders from March 2025</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> orders
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">YEAR</span>(order_date) = <span class="hljs-number">2025</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">MONTH</span>(order_date) = <span class="hljs-number">3</span>;
+
+<span class="hljs-comment">-- Days since order was placed</span>
+<span class="hljs-keyword">SELECT</span> order_id, order_date,
+       <span class="hljs-keyword">DATEDIFF</span>(<span class="hljs-keyword">CURDATE</span>(), order_date) <span class="hljs-keyword">AS</span> days_ago
+<span class="hljs-keyword">FROM</span> orders;
+
+<span class="hljs-comment">-- Format order dates nicely</span>
+<span class="hljs-keyword">SELECT</span> order_id,
+       <span class="hljs-keyword">DATE_FORMAT</span>(order_date, <span class="hljs-string">'%d %b %Y'</span>) <span class="hljs-keyword">AS</span> formatted_date
+<span class="hljs-keyword">FROM</span> orders;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/05_date_functions.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="6-null-handling">6. NULL Handling</h2>
+<p><code>NULL</code> means <strong>unknown/missing</strong> — it's not zero, not empty string, not false.</p>
+<h3 id="61-key-rules">6.1 Key Rules</h3>
+<ul>
+<li><code>NULL = NULL</code> → <code>NULL</code> (not TRUE!)</li>
+<li><code>NULL &lt;&gt; 'abc'</code> → <code>NULL</code> (not TRUE!)</li>
+<li>Any arithmetic with NULL → <code>NULL</code></li>
+<li>Use <code>IS NULL</code> / <code>IS NOT NULL</code> to test</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Find products with no description</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> description <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>;
+
+<span class="hljs-comment">-- Find products that DO have a description</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> description <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>;
+
+<span class="hljs-comment">-- COALESCE: return first non-NULL value</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, <span class="hljs-keyword">COALESCE</span>(description, <span class="hljs-string">'No description available'</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">desc</span>
+<span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- IFNULL: MySQL-specific (simpler for two args)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, <span class="hljs-keyword">IFNULL</span>(phone, <span class="hljs-string">'N/A'</span>) <span class="hljs-keyword">AS</span> phone
+<span class="hljs-keyword">FROM</span> customers;
+</div></code></pre>
+<h3 id="62-null-in-math">6.2 NULL in Math</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> <span class="hljs-number">10</span> + <span class="hljs-literal">NULL</span>;    <span class="hljs-comment">-- NULL (not 10!)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-literal">NULL</span> * <span class="hljs-number">5</span>;     <span class="hljs-comment">-- NULL</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-literal">NULL</span> = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">-- NULL (not TRUE!)</span>
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/06_null_handling.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="7-order-by-limit-offset">7. ORDER BY, LIMIT, OFFSET</h2>
+<h3 id="71-sorting">7.1 Sorting</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Sort by price ascending (cheapest first — default)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price;
+
+<span class="hljs-comment">-- Sort descending (most expensive first)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span>;
+
+<span class="hljs-comment">-- Multi-column sort: by category, then by price desc</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, category_id, price <span class="hljs-keyword">FROM</span> products
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> category_id <span class="hljs-keyword">ASC</span>, price <span class="hljs-keyword">DESC</span>;
+
+<span class="hljs-comment">-- Sort by column position (not recommended but possible)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>;
+</div></code></pre>
+<h3 id="72-limit-and-offset-pagination">7.2 LIMIT and OFFSET (Pagination)</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Top 3 most expensive products</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">3</span>;
+
+<span class="hljs-comment">-- Pagination: page 1 (items 1-3)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">3</span> <span class="hljs-keyword">OFFSET</span> <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">-- Page 2 (items 4-6)</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">3</span> <span class="hljs-keyword">OFFSET</span> <span class="hljs-number">3</span>;
+
+<span class="hljs-comment">-- Alternative syntax: LIMIT offset, count</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> price <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">3</span>, <span class="hljs-number">3</span>;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/07_order_limit.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="8-distinct-and-aliases">8. DISTINCT and Aliases</h2>
+<h3 id="81-distinct">8.1 DISTINCT</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- All unique cities</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> city <span class="hljs-keyword">FROM</span> customers;
+
+<span class="hljs-comment">-- Unique category IDs in products</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> category_id <span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Unique combinations</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> city, gender <span class="hljs-keyword">FROM</span> customers;
+</div></code></pre>
+<h3 id="82-column-aliases">8.2 Column Aliases</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Rename columns in output</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">AS</span> product_name, price <span class="hljs-keyword">AS</span> <span class="hljs-string">"Price (BDT)"</span>
+<span class="hljs-keyword">FROM</span> products;
+
+<span class="hljs-comment">-- Calculated column with alias</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, price * <span class="hljs-number">0.85</span> <span class="hljs-keyword">AS</span> sale_price
+<span class="hljs-keyword">FROM</span> products;
+</div></code></pre>
+<h3 id="83-table-aliases">8.3 Table Aliases</h3>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Short table names for convenience</span>
+<span class="hljs-keyword">SELECT</span> p.name, p.price, c.name <span class="hljs-keyword">AS</span> <span class="hljs-keyword">category</span>
+<span class="hljs-keyword">FROM</span> products p
+<span class="hljs-keyword">JOIN</span> categories c <span class="hljs-keyword">ON</span> p.category_id = c.category_id;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/08_distinct_aliases.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="%E2%9A%A0%EF%B8%8F-common-pitfalls">⚠️ Common Pitfalls</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WHERE name = NULL</code></td>
+<td>Never TRUE (NULL ≠ NULL)</td>
+<td>Use <code>WHERE name IS NULL</code></td>
+</tr>
+<tr>
+<td>Missing <code>%</code> in LIKE</td>
+<td><code>LIKE 'phone'</code> matches exact &quot;phone&quot; only</td>
+<td><code>LIKE '%phone%'</code> for contains</td>
+</tr>
+<tr>
+<td>LIMIT without ORDER BY</td>
+<td>Random rows returned</td>
+<td>Always ORDER BY before LIMIT</td>
+</tr>
+<tr>
+<td><code>'</code> inside strings</td>
+<td>Syntax error</td>
+<td>Escape: <code>'it''s'</code> or use <code>&quot;it's&quot;</code></td>
+</tr>
+<tr>
+<td>Forgetting parentheses</td>
+<td><code>A OR B AND C</code> ≠ <code>(A OR B) AND C</code></td>
+<td>Always use parentheses</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%94%97-in-the-industry">🔗 In the Industry</h2>
+<ul>
+<li><strong>Pagination</strong> (<code>LIMIT</code>/<code>OFFSET</code>) is used on every page of Google, Amazon, Facebook</li>
+<li><strong>String functions</strong> are essential for data cleaning and ETL pipelines</li>
+<li><strong>Date functions</strong> power reporting dashboards and analytics</li>
+<li><strong>NULL handling</strong> is one of the most common sources of bugs in production systems</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%A7%AA-lab-task-3--sql-query-challenge">🧪 Lab Task 3 — SQL Query Challenge</h2>
+<p><strong>Duration:</strong> 30–40 minutes<br>
+<strong>Difficulty:</strong> ⭐⭐⭐ (Medium)</p>
+<p>Write 15 queries on the <code>ecommerce_db</code> database:</p>
+<ol>
+<li>List all products with name and price</li>
+<li>Find all customers from Dhaka</li>
+<li>Find products priced between 1,000 and 5,000 BDT</li>
+<li>Find products whose name contains &quot;Shirt&quot; or &quot;Shoe&quot;</li>
+<li>List all pending orders</li>
+<li>Show products sorted by price (most expensive first)</li>
+<li>Show the top 5 cheapest products</li>
+<li>List products not in the Electronics category</li>
+<li>Show customer full names (first + last) and their emails</li>
+<li>Calculate the total inventory value (price × stock) for each product</li>
+<li>Show products with a 25% discount applied</li>
+<li>Find orders placed in March 2025</li>
+<li>Show how many days ago each order was placed</li>
+<li>Find customers whose email is from Gmail</li>
+<li>Show products with no description (NULL)</li>
+</ol>
+<h3 id="grading-criteria">Grading Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th style="text-align:center">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Queries 1–5 correct (basic)</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td>Queries 6–10 correct (intermediate)</td>
+<td style="text-align:center">30</td>
+</tr>
+<tr>
+<td>Queries 11–15 correct (functions/NULL)</td>
+<td style="text-align:center">30</td>
+</tr>
+<tr>
+<td>Code formatting and comments</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align:center"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>📁 Reference Solution:</strong> <code>lab_03_basic_sql/labtask/solution.sql</code></p>
+
+</body>
+</html>

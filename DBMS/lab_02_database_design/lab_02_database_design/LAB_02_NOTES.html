@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAB_02_NOTES.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lab-02--database-design-from-case-study">Lab 02 — Database Design from Case Study</h1>
+<blockquote>
+<p><strong>Duration:</strong> 2 hours | <strong>Type:</strong> Lab Session | <strong>CO:</strong> CO2<br>
+<strong>Goal:</strong> Students will learn how to design and implement a database from a case study.</p>
+</blockquote>
+<hr>
+<h2 id="%F0%9F%93%8B-session-outline">📋 Session Outline</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Files</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00 – 0:15</td>
+<td>Case study walkthrough</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0:15 – 0:35</td>
+<td>ERD design with Mermaid</td>
+<td><code>01_erd_to_schema.sql</code></td>
+</tr>
+<tr>
+<td>0:35 – 0:55</td>
+<td>Normalization (1NF → 3NF)</td>
+<td><code>02_normalization.sql</code></td>
+</tr>
+<tr>
+<td>0:55 – 1:05</td>
+<td>☕ Break</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1:05 – 1:25</td>
+<td>Primary &amp; Foreign Keys</td>
+<td><code>03_primary_foreign_keys.sql</code></td>
+</tr>
+<tr>
+<td>1:25 – 1:40</td>
+<td>ALTER TABLE operations</td>
+<td><code>04_alter_table.sql</code></td>
+</tr>
+<tr>
+<td>1:40 – 1:50</td>
+<td>DROP vs TRUNCATE vs DELETE</td>
+<td><code>05_drop_truncate.sql</code></td>
+</tr>
+<tr>
+<td>1:50 – 2:00</td>
+<td>Lab Task briefing</td>
+<td><code>labtask/</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-the-case-study--e-commerce-system">1. The Case Study — E-Commerce System</h2>
+<h3 id="11-business-description">1.1 Business Description</h3>
+<p><strong>ShopBD</strong> is an online store that needs a database to manage:</p>
+<ul>
+<li><strong>Products</strong> are organized into <strong>categories</strong> (e.g., Electronics, Clothing)</li>
+<li><strong>Customers</strong> register with their contact info and can place <strong>orders</strong></li>
+<li>Each <strong>order</strong> contains one or more <strong>products</strong> with quantities</li>
+<li>Products have a name, price, stock quantity, and belong to a category</li>
+<li>Each order records date, total amount, and status (pending, shipped, delivered)</li>
+</ul>
+<h3 id="12-identifying-entities--attributes">1.2 Identifying Entities &amp; Attributes</h3>
+<p>From the description, we extract:</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Attributes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Categories</strong></td>
+<td>category_id, name, description</td>
+</tr>
+<tr>
+<td><strong>Products</strong></td>
+<td>product_id, name, price, stock, description, category</td>
+</tr>
+<tr>
+<td><strong>Customers</strong></td>
+<td>customer_id, first_name, last_name, email, phone, address, city</td>
+</tr>
+<tr>
+<td><strong>Orders</strong></td>
+<td>order_id, customer, order_date, status, total_amount</td>
+</tr>
+<tr>
+<td><strong>Order Items</strong></td>
+<td>order_item_id, order, product, quantity, unit_price</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-identifying-relationships">1.3 Identifying Relationships</h3>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category → Products</td>
+<td style="text-align:center">1 : M</td>
+<td>One category has many products</td>
+</tr>
+<tr>
+<td>Customer → Orders</td>
+<td style="text-align:center">1 : M</td>
+<td>One customer places many orders</td>
+</tr>
+<tr>
+<td>Order → Order Items</td>
+<td style="text-align:center">1 : M</td>
+<td>One order has many items</td>
+</tr>
+<tr>
+<td>Product → Order Items</td>
+<td style="text-align:center">1 : M</td>
+<td>One product appears in many order items</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-entity-relationship-diagram-erd">2. Entity-Relationship Diagram (ERD)</h2>
+<h3 id="21-what-is-an-erd">2.1 What is an ERD?</h3>
+<p>An ERD is a visual blueprint of your database. It shows:</p>
+<ul>
+<li><strong>Entities</strong> (tables) as rectangles</li>
+<li><strong>Attributes</strong> (columns) listed inside</li>
+<li><strong>Relationships</strong> as lines connecting entities</li>
+<li><strong>Cardinality</strong> (1:1, 1:M, M:N) shown with symbols</li>
+</ul>
+<h3 id="22-cardinality-notation">2.2 Cardinality Notation</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>||</code></td>
+<td>Exactly one</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>o|</code></td>
+<td>Zero or one</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>|{</code></td>
+<td>One or more</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>o{</code></td>
+<td>Zero or more</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-our-e-commerce-erd">2.3 Our E-Commerce ERD</h3>
+<pre><code class="language-mermaid"><div class="mermaid">erDiagram
+    CATEGORIES ||--o{ PRODUCTS : "has"
+    CUSTOMERS ||--o{ ORDERS : "places"
+    ORDERS ||--|{ ORDER_ITEMS : "contains"
+    PRODUCTS ||--o{ ORDER_ITEMS : "included in"
+
+    CATEGORIES {
+        int category_id PK
+        varchar name
+        text description
+        timestamp created_at
+    }
+
+    PRODUCTS {
+        int product_id PK
+        varchar name
+        text description
+        decimal price
+        int stock
+        boolean is_active
+        int category_id FK
+        timestamp created_at
+    }
+
+    CUSTOMERS {
+        int customer_id PK
+        varchar first_name
+        varchar last_name
+        varchar email
+        varchar phone
+        varchar address
+        varchar city
+        timestamp created_at
+    }
+
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        date order_date
+        enum status
+        decimal total_amount
+        timestamp created_at
+    }
+
+    ORDER_ITEMS {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+</div></code></pre>
+<h3 id="24-reading-the-erd">2.4 Reading the ERD</h3>
+<ul>
+<li>A <strong>CATEGORY</strong> has zero or more <strong>PRODUCTS</strong> → <code>||--o{</code></li>
+<li>A <strong>CUSTOMER</strong> places zero or more <strong>ORDERS</strong> → <code>||--o{</code></li>
+<li>An <strong>ORDER</strong> contains one or more <strong>ORDER_ITEMS</strong> → <code>||--|{</code></li>
+<li>A <strong>PRODUCT</strong> is included in zero or more <strong>ORDER_ITEMS</strong> → <code>||--o{</code></li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> Open this file in VS Code with the Markdown Preview Enhanced extension or the built-in preview to render the Mermaid diagram.</p>
+</blockquote>
+<hr>
+<h2 id="3-normalization">3. Normalization</h2>
+<h3 id="31-why-normalize">3.1 Why Normalize?</h3>
+<p>Normalization eliminates <strong>data redundancy</strong> and <strong>update anomalies</strong>. Without it:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Insert Anomaly</strong></td>
+<td>Can't add a new category unless there's a product in it</td>
+</tr>
+<tr>
+<td><strong>Update Anomaly</strong></td>
+<td>Changing a category name requires updating every product row</td>
+</tr>
+<tr>
+<td><strong>Delete Anomaly</strong></td>
+<td>Deleting the last product in a category loses the category info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-first-normal-form-1nf">3.2 First Normal Form (1NF)</h3>
+<p><strong>Rule:</strong> Every column must contain <strong>atomic</strong> (single) values. No repeating groups.</p>
+<p>❌ <strong>Not in 1NF:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">order_id</th>
+<th>customer</th>
+<th>products</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq</td>
+<td>iPhone, AirPods, Case</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Nusrat</td>
+<td>Laptop, Mouse</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>products</code> column has multiple values — violates 1NF.</p>
+<p>✅ <strong>In 1NF:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">order_id</th>
+<th>customer</th>
+<th>product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq</td>
+<td>iPhone</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq</td>
+<td>AirPods</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq</td>
+<td>Case</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Nusrat</td>
+<td>Laptop</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Nusrat</td>
+<td>Mouse</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-second-normal-form-2nf">3.3 Second Normal Form (2NF)</h3>
+<p><strong>Rule:</strong> Must be in 1NF AND every non-key column must depend on the <strong>entire</strong> primary key (not just part of it).</p>
+<p>❌ <strong>Not in 2NF</strong> (composite key: <code>{order_id, product_id}</code>):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">order_id</th>
+<th style="text-align:center">product_id</th>
+<th>product_name</th>
+<th style="text-align:center">quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">101</td>
+<td>iPhone</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">102</td>
+<td>AirPods</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p><code>product_name</code> depends only on <code>product_id</code>, not the full composite key — <strong>partial dependency</strong>.</p>
+<p>✅ <strong>In 2NF:</strong> Separate into two tables:</p>
+<p><strong>order_items:</strong> <code>{order_id, product_id, quantity}</code><br>
+<strong>products:</strong> <code>{product_id, product_name}</code></p>
+<h3 id="34-third-normal-form-3nf">3.4 Third Normal Form (3NF)</h3>
+<p><strong>Rule:</strong> Must be in 2NF AND no non-key column depends on another non-key column.</p>
+<p>❌ <strong>Not in 3NF:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">customer_id</th>
+<th>name</th>
+<th>city</th>
+<th style="text-align:center">city_area_code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Rafiq</td>
+<td>Dhaka</td>
+<td style="text-align:center">02</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Nusrat</td>
+<td>Chittagong</td>
+<td style="text-align:center">031</td>
+</tr>
+</tbody>
+</table>
+<p><code>city_area_code</code> depends on <code>city</code>, not on <code>customer_id</code> — <strong>transitive dependency</strong>.</p>
+<p>✅ <strong>In 3NF:</strong> Separate into two tables:</p>
+<p><strong>customers:</strong> <code>{customer_id, name, city_id}</code><br>
+<strong>cities:</strong> <code>{city_id, city, area_code}</code></p>
+<h3 id="35-summary">3.5 Summary</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Normal Form</th>
+<th>Rule</th>
+<th>Eliminates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>1NF</strong></td>
+<td>Atomic values, no repeating groups</td>
+<td>Multi-valued columns</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>2NF</strong></td>
+<td>No partial dependencies</td>
+<td>Part-of-key dependencies</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>3NF</strong></td>
+<td>No transitive dependencies</td>
+<td>Non-key → Non-key dependencies</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>For this course and most real-world applications, 3NF is sufficient.</strong></p>
+</blockquote>
+<hr>
+<h2 id="4-primary-keys-and-foreign-keys">4. Primary Keys and Foreign Keys</h2>
+<h3 id="41-primary-key-pk">4.1 Primary Key (PK)</h3>
+<p>The primary key <strong>uniquely identifies</strong> each row in a table.</p>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>Must be <code>UNIQUE</code> and <code>NOT NULL</code></li>
+<li>Only <strong>one</strong> primary key per table</li>
+<li>Best practice: use an <code>AUTO_INCREMENT</code> integer</li>
+</ul>
+<p><strong>Types of primary keys:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Surrogate</strong> (auto-generated)</td>
+<td><code>id INT AUTO_INCREMENT</code></td>
+<td>Simple, performant</td>
+<td>No business meaning</td>
+</tr>
+<tr>
+<td><strong>Natural</strong> (from data)</td>
+<td><code>email</code>, <code>isbn</code></td>
+<td>Business meaning</td>
+<td>Can change</td>
+</tr>
+<tr>
+<td><strong>Composite</strong> (multiple columns)</td>
+<td><code>(order_id, product_id)</code></td>
+<td>For junction tables</td>
+<td>Complex queries</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-foreign-key-fk">4.2 Foreign Key (FK)</h3>
+<p>A foreign key creates a <strong>link</strong> between two tables. It references the primary key of another table.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products (
+    product_id  <span class="hljs-built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span>        <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">200</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    category_id <span class="hljs-built_in">INT</span>,
+    <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (category_id) <span class="hljs-keyword">REFERENCES</span> categories(category_id)
+);
+</div></code></pre>
+<h3 id="43-referential-integrity-actions">4.3 Referential Integrity Actions</h3>
+<p>What happens when you DELETE or UPDATE a referenced row?</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>ON DELETE</th>
+<th>ON UPDATE</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RESTRICT</code></td>
+<td>❌ Block delete</td>
+<td>❌ Block update</td>
+<td>Default — prevents orphans</td>
+</tr>
+<tr>
+<td><code>CASCADE</code></td>
+<td>Delete child rows too</td>
+<td>Update child FKs too</td>
+<td>Automatic cleanup</td>
+</tr>
+<tr>
+<td><code>SET NULL</code></td>
+<td>Set FK to NULL</td>
+<td>Set FK to NULL</td>
+<td>Keep row, lose reference</td>
+</tr>
+<tr>
+<td><code>SET DEFAULT</code></td>
+<td>Set FK to default</td>
+<td>Set FK to default</td>
+<td>MySQL limited support</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div>FOREIGN KEY (category_id) REFERENCES categories(category_id)
+    ON <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">SET</span> <span class="hljs-literal">NULL</span>
+    <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CASCADE</span>
+</div></code></pre>
+<hr>
+<h2 id="5-translating-erd-to-sql">5. Translating ERD to SQL</h2>
+<h3 id="step-by-step-process">Step-by-Step Process</h3>
+<ol>
+<li><strong>Create tables WITHOUT foreign keys first</strong> (parent tables)</li>
+<li><strong>Create tables WITH foreign keys</strong> (child tables)</li>
+<li><strong>Add indexes</strong> for frequently queried columns</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Step 1: Parent tables first (no FK dependencies)</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> categories (...);
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> customers (...);
+
+<span class="hljs-comment">-- Step 2: Child tables (reference parent tables)</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> products (..., <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (category_id) <span class="hljs-keyword">REFERENCES</span> categories(category_id));
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> orders (..., <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (customer_id) <span class="hljs-keyword">REFERENCES</span> customers(customer_id));
+
+<span class="hljs-comment">-- Step 3: Junction/detail tables (reference multiple parents)</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> order_items (..., <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (order_id) <span class="hljs-keyword">REFERENCES</span> orders(order_id),
+                               <span class="hljs-keyword">FOREIGN</span> <span class="hljs-keyword">KEY</span> (product_id) <span class="hljs-keyword">REFERENCES</span> products(product_id));
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/01_erd_to_schema.sql</code> for the complete implementation</p>
+</blockquote>
+<hr>
+<h2 id="6-alter-table--modifying-tables">6. ALTER TABLE — Modifying Tables</h2>
+<p>After creating a table, you often need to modify it:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Add a new column</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> customers <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> date_of_birth <span class="hljs-built_in">DATE</span>;
+
+<span class="hljs-comment">-- Modify column type/constraints</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> customers <span class="hljs-keyword">MODIFY</span> <span class="hljs-keyword">COLUMN</span> phone <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>);
+
+<span class="hljs-comment">-- Rename a column</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> customers <span class="hljs-keyword">RENAME</span> <span class="hljs-keyword">COLUMN</span> address <span class="hljs-keyword">TO</span> street_address;
+
+<span class="hljs-comment">-- Drop a column</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> customers <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> date_of_birth;
+
+<span class="hljs-comment">-- Add a constraint after creation</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> chk_price <span class="hljs-keyword">CHECK</span> (price &gt;= <span class="hljs-number">0</span>);
+
+<span class="hljs-comment">-- Drop a constraint</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> products <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> chk_price;
+
+<span class="hljs-comment">-- Rename a table</span>
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> customers <span class="hljs-keyword">RENAME</span> <span class="hljs-keyword">TO</span> clients;
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> clients <span class="hljs-keyword">RENAME</span> <span class="hljs-keyword">TO</span> customers;  <span class="hljs-comment">-- rename back</span>
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/04_alter_table.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="7-drop-vs-truncate-vs-delete">7. DROP vs TRUNCATE vs DELETE</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th style="text-align:center"><code>DROP TABLE</code></th>
+<th style="text-align:center"><code>TRUNCATE TABLE</code></th>
+<th style="text-align:center"><code>DELETE FROM</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Removes</td>
+<td style="text-align:center">Table + data + structure</td>
+<td style="text-align:center">All data only</td>
+<td style="text-align:center">Specific rows</td>
+</tr>
+<tr>
+<td>WHERE clause?</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td>Recoverable?</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅ (with ROLLBACK)</td>
+</tr>
+<tr>
+<td>Resets AUTO_INCREMENT?</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td style="text-align:center">Fast</td>
+<td style="text-align:center">Very fast</td>
+<td style="text-align:center">Slower (row by row)</td>
+</tr>
+<tr>
+<td>Triggers fire?</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✅</td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Delete specific rows (DML — can be rolled back)</span>
+<span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> products <span class="hljs-keyword">WHERE</span> stock = <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">-- Remove ALL rows but keep table structure (DDL — cannot be rolled back)</span>
+<span class="hljs-keyword">TRUNCATE</span> <span class="hljs-keyword">TABLE</span> order_items;
+
+<span class="hljs-comment">-- Remove entire table (DDL — cannot be rolled back)</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> order_items;
+</div></code></pre>
+<blockquote>
+<p>📁 <strong>See:</strong> <code>examples/05_drop_truncate.sql</code></p>
+</blockquote>
+<hr>
+<h2 id="%E2%9A%A0%EF%B8%8F-common-pitfalls">⚠️ Common Pitfalls</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creating child tables before parent tables</td>
+<td>FK reference fails</td>
+<td>Create parent tables first</td>
+</tr>
+<tr>
+<td>Forgetting <code>ON DELETE</code> strategy</td>
+<td>Can't delete parent rows</td>
+<td>Choose CASCADE, SET NULL, or handle in app</td>
+</tr>
+<tr>
+<td>Over-normalizing</td>
+<td>Too many JOINs, slow queries</td>
+<td>3NF is usually enough</td>
+</tr>
+<tr>
+<td>Using natural keys as PK</td>
+<td>If email changes, every FK breaks</td>
+<td>Use surrogate keys (AUTO_INCREMENT)</td>
+</tr>
+<tr>
+<td>No ER diagram</td>
+<td>Database is built ad-hoc</td>
+<td>Always draw ERD first, then code</td>
+</tr>
+<tr>
+<td>Inconsistent data types for FK pairs</td>
+<td>JOIN doesn't match</td>
+<td>FK column must match PK column type exactly</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%F0%9F%94%97-in-the-industry">🔗 In the Industry</h2>
+<ul>
+<li><strong>ERD tools</strong> like MySQL Workbench, dbdiagram.io, and Mermaid are used daily by database architects</li>
+<li><strong>Normalization</strong> is applied during design, but sometimes <strong>denormalization</strong> is done for performance (read-heavy systems)</li>
+<li><strong>Schema migrations</strong> (ALTER TABLE) are managed with tools like Flyway or Liquibase in production</li>
+<li><strong>Foreign keys</strong> are sometimes not enforced in very high-performance systems (like social media feeds) — but always enforced in financial systems</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%A7%AA-lab-task-2--design-an-e-commerce-database">🧪 Lab Task 2 — Design an E-Commerce Database</h2>
+<p><strong>Duration:</strong> 40–50 minutes<br>
+<strong>Difficulty:</strong> ⭐⭐⭐ (Medium)</p>
+<h3 id="requirements">Requirements</h3>
+<p>Design and implement the <strong>ShopBD E-Commerce database</strong> from the case study above:</p>
+<ol>
+<li><strong>Draw the ERD</strong> using Mermaid syntax in a markdown file</li>
+<li><strong>Create the database</strong> <code>ecommerce_db</code></li>
+<li><strong>Create all 5 tables</strong> in the correct order with:
+<ul>
+<li>Appropriate data types</li>
+<li>All constraints (PK, FK, NOT NULL, UNIQUE, DEFAULT, CHECK)</li>
+<li>Proper <code>ON DELETE</code> and <code>ON UPDATE</code> actions</li>
+</ul>
+</li>
+<li><strong>Insert sample data:</strong>
+<ul>
+<li>5 categories</li>
+<li>10 products (at least 2 per category)</li>
+<li>5 customers</li>
+<li>5 orders across different customers</li>
+<li>15 order items across the orders</li>
+</ul>
+</li>
+<li><strong>Verify</strong> with <code>SELECT * FROM each_table;</code></li>
+</ol>
+<h3 id="grading-criteria">Grading Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th style="text-align:center">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mermaid ERD with all entities and relationships</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>Tables created in correct dependency order</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td>Correct data types for all columns</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>All constraints (PK, FK, NOT NULL, UNIQUE, CHECK)</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td>Referential integrity actions (ON DELETE/UPDATE)</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td>Realistic sample data</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td>Naming conventions and code formatting</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>All SELECT queries return expected results</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align:center"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bonus-challenge-%E2%AD%90">Bonus Challenge ⭐</h3>
+<p>Add a <code>product_reviews</code> table where customers can rate products (1–5 stars) with a comment. Include proper foreign keys and a CHECK constraint on the rating.</p>
+<hr>
+<p><strong>📁 Reference Solution:</strong> <code>lab_02_database_design/labtask/solution.sql</code></p>
+
+</body>
+</html>
