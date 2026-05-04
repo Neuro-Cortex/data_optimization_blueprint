@@ -1,9 +1,4 @@
--- ============================================================
--- Lab 01 | Example 01: Creating and Managing Databases
--- ============================================================
--- This file demonstrates how to create, use, and manage
--- databases in MySQL.
--- ============================================================
+
 
 -- ─────────────────────────────────────────────
 -- 1. Show existing databases
